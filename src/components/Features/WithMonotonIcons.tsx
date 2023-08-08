@@ -1,4 +1,4 @@
-import { ThemeIcon, Text, Title, Container, SimpleGrid, createStyles, rem } from '@mantine/core';
+import { ThemeIcon, Text, Title, Container, SimpleGrid, createStyles, rem, Paper } from '@mantine/core';
 import { IconGauge, IconCookie, IconUser, IconMessage2, IconLock } from '@tabler/icons-react';
 
 export const MOCKDATA = [
@@ -42,7 +42,7 @@ interface FeatureProps {
 
 export function Feature( { icon: Icon, title, description }: FeatureProps ) {
     return (
-        <div>
+        <Paper withBorder p="md" radius={"lg"}>
             <ThemeIcon variant="light" size={40} radius={40}>
                 <Icon size="1.1rem" stroke={1.5} />
             </ThemeIcon>
@@ -52,7 +52,7 @@ export function Feature( { icon: Icon, title, description }: FeatureProps ) {
             <Text size="sm" color="dimmed" sx={{ lineHeight: 1.6 }}>
                 {description}
             </Text>
-        </div>
+        </Paper>
     );
 }
 

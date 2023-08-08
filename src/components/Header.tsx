@@ -35,7 +35,8 @@ import { ROUTES } from '../constants/routes';
 
 const useStyles = createStyles( ( theme ) => ( {
     wrapper: {
-        borderBottom: "none"
+        borderBottom: "none",
+        position: "fixed"
     },
 
     link: {
@@ -166,14 +167,14 @@ export function Header() {
                         </Link>
                         <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
                             <HoverCard.Target>
-                                <a href="#" className={classes.link}>
+                                <Link to={"#"} className={classes.link}>
                                     <Center inline>
                                         <Box component="span" mr={5}>
                                             Features
                                         </Box>
                                         <IconChevronDown size={16} color={theme.fn.primaryColor()} />
                                     </Center>
-                                </a>
+                                </Link>
                             </HoverCard.Target>
 
                             <HoverCard.Dropdown sx={{ overflow: 'hidden' }}>
@@ -209,12 +210,15 @@ export function Header() {
                                 </div>
                             </HoverCard.Dropdown>
                         </HoverCard>
-                        <a href="#" className={classes.link}>
-                            Learn
-                        </a>
-                        <a href="#" className={classes.link}>
+                        <Link to={ROUTES.BLOG} className={classes.link}>
+                            Blog
+                        </Link>
+                        <Link to={ROUTES.ACADEMY} className={classes.link}>
                             Academy
-                        </a>
+                        </Link>
+                        <Link to={ROUTES.ESTIMATOR} className={classes.link}>
+                            Estimator
+                        </Link>
                     </Group>
 
                     <Group className={classes.hiddenMobile}>
@@ -248,12 +252,15 @@ export function Header() {
                         </Center>
                     </UnstyledButton>
                     <Collapse in={linksOpened}>{links}</Collapse>
-                    <a href="#" className={classes.link}>
-                        Learn
-                    </a>
-                    <a href="#" className={classes.link}>
+                    <Link to={ROUTES.BLOG} className={classes.link}>
+                        Blog
+                    </Link>
+                    <Link to={ROUTES.ACADEMY} className={classes.link}>
                         Academy
-                    </a>
+                    </Link>
+                    <Link to={ROUTES.ESTIMATOR} className={classes.link}>
+                        Estimator
+                    </Link>
 
                     <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 

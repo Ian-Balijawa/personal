@@ -9,11 +9,18 @@ import {
     rem,
 } from '@mantine/core';
 import image from '../assets/image.svg';
+import { ROUTES } from '../constants/routes';
+import { Link } from 'react-router-dom';
 
 const useStyles = createStyles( ( theme ) => ( {
     root: {
         paddingTop: rem( 80 ),
         paddingBottom: rem( 80 ),
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100vw",
+        height: "100vh"
     },
 
     title: {
@@ -31,6 +38,9 @@ const useStyles = createStyles( ( theme ) => ( {
         [theme.fn.smallerThan( 'sm' )]: {
             width: '100%',
         },
+        textDecoration: "none",
+        textTransform: "capitalize"
+
     },
 
     mobileImage: {
@@ -59,9 +69,11 @@ export default function NotFound() {
                         Page you are trying to open does not exist. You may have mistyped the address, or the
                         page has been moved to another URL. If you think this is an error contact support.
                     </Text>
-                    <Button variant="outline" size="md" mt="xl" className={classes.control}>
-                        Get back to home page
-                    </Button>
+                    <Link to={ROUTES.HOME}>
+                        <Button radius="xl" variant="outline" fullWidth size="md" mt="xl" className={classes.control}>
+                            Get back to home page
+                        </Button>
+                    </Link>
                 </div>
                 <Image src={image} className={classes.desktopImage} />
             </SimpleGrid>
