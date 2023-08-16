@@ -8,11 +8,13 @@ import {
 	List,
 	ThemeIcon,
 	rem,
+	Paper,
 } from '@mantine/core'
-import { IconCheck } from '@tabler/icons-react'
+import { IconCheck, IconExternalLink } from '@tabler/icons-react'
 import { Dots } from './Dots'
 import { ROUTES } from '../constants/routes'
 import { Link } from 'react-router-dom'
+import { IconBrandGithub } from '@tabler/icons-react'
 
 const useStyles = createStyles(theme => ({
 	wrapper: {
@@ -34,12 +36,30 @@ const useStyles = createStyles(theme => ({
 		left: 0,
 		top: 0,
 	},
-	inner: {
+	innerRight: {
 		display: 'flex',
 		justifyContent: 'space-between',
 		paddingTop: `calc(${theme.spacing.xl} * 4)`,
 		position: 'relative',
 		zIndex: 1,
+		[theme.fn.smallerThan('md')]: {
+			flexDirection: 'column',
+			marginBottom: rem(20),
+		},
+	},
+	innerLeft: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		flexDirection: 'row-reverse',
+		alignItems: 'flex-start',
+		paddingTop: `calc(${theme.spacing.xl} * 4)`,
+		position: 'relative',
+		gap: rem(40),
+		zIndex: 1,
+		[theme.fn.smallerThan('md')]: {
+			flexDirection: 'column',
+			marginBottom: rem(20),
+		},
 	},
 
 	content: {
@@ -69,46 +89,50 @@ const useStyles = createStyles(theme => ({
 			flex: 1,
 		},
 	},
-
 	image: {
 		flex: 1,
 		[theme.fn.smallerThan('md')]: {
-			display: 'none',
+			marginTop: rem(20),
 		},
-	},
-
-	highlight: {
-		position: 'relative',
-		backgroundColor: theme.fn.variant({
-			variant: 'light',
-			color: theme.primaryColor,
-		}).background,
-		borderRadius: theme.radius.sm,
-		padding: `${rem(4)} ${rem(12)}`,
 	},
 }))
 
-export function Hero() {
+export interface FeaturedProjectProps {
+	image: string
+	title: string
+	description: string
+	link: string
+	direction: 'left' | 'right'
+	github: string
+}
+
+export function FeatureProject({
+	image,
+	title,
+	description,
+	link,
+	direction,
+	github,
+}: FeaturedProjectProps) {
 	const { classes } = useStyles()
 	return (
-		<div className={classes.wrapper}>
+		<Paper className={classes.wrapper}>
 			<Dots className={classes.dots} style={{ left: 0, top: 0 }} />
 			<Dots className={classes.dots} style={{ left: 60, top: 0 }} />
 			<Dots className={classes.dots} style={{ left: 0, top: 140 }} />
 			<Dots className={classes.dots} style={{ right: 0, top: 60 }} />
 
-			<div className={classes.inner}>
+			<div
+				className={
+					direction === 'left'
+						? classes.innerLeft
+						: classes.innerRight
+				}
+			>
 				<div className={classes.content}>
-					<Title className={classes.title}>
-						Build{' '}
-						<span className={classes.highlight}>and scale</span>{' '}
-						with <br />
-						with us in your domain
-					</Title>
+					<Title className={classes.title}>{title}</Title>
 					<Text color="dimmed" mt="md">
-						We have ompleted many projects on time and budget in
-						different domains for dynamic small to medium businesses
-						and startups
+						{description}
 					</Text>
 
 					<List
@@ -138,20 +162,26 @@ export function Hero() {
 
 					<Group mt={30}>
 						<Button
-							radius="xl"
+							radius="lg"
 							size="md"
 							className={classes.control}
+							component="a"
+							href={link}
+							rightIcon={<IconExternalLink />}
 						>
-							Get started
+							See demo
 						</Button>
 						<Link to={ROUTES.PORTFOLIO}>
 							<Button
+								radius="lg"
 								variant="default"
-								radius="xl"
 								size="md"
 								className={classes.control}
+								component="a"
+								href={github}
+								rightIcon={<IconBrandGithub />}
 							>
-								Portfolio
+								Source code
 							</Button>
 						</Link>
 					</Group>
@@ -159,10 +189,12 @@ export function Hero() {
 				<Image
 					withPlaceholder
 					placeholder=""
-					src={'/images/image.svg'}
+					src={
+						image || 'https://iyn.vercel.app/images/silverlight.png'
+					}
 					className={classes.image}
 				/>
 			</div>
-		</div>
+		</Paper>
 	)
 }

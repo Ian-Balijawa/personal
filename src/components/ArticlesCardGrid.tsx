@@ -31,8 +31,8 @@ export const mockdata: MockData[] = [
 ]
 
 export function ArticlesCardsGrid() {
-	const cards = Array.from({ length: 9 }).map((_, index) => (
-		<BadgeCard key={index} {...data} />
+	const cards = data.map((_, index) => (
+		<BadgeCard key={index} {...data[index]} />
 	))
 
 	return (
