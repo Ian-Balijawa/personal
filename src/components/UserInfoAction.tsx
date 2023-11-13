@@ -11,7 +11,7 @@ export default function UserInfoAction() {
                 mx="auto"
             />
             <Text ta="center" fz="lg" fw={500} mt="md">
-                Jane Fingerlicker
+                Jane Doe
             </Text>
             <Text ta="center" c="dimmed" fz="sm">
                 jfingerlicker@me.io • Art director
