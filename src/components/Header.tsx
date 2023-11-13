@@ -9,9 +9,8 @@ import {
 	Collapse,
 	ScrollArea,
 	rem,
-	TextInput
+	TextInput, Image
 } from '@mantine/core'
-import { MantineLogo } from '@mantine/ds'
 import { useDisclosure } from '@mantine/hooks'
 import {
 	IconNotification,
@@ -165,7 +164,7 @@ export function Header() {
 			<Wrapper className={classes.wrapper} height={60} px="md">
 				<Group position="apart" sx={{ height: '100%' }}>
 					<Link to={ROUTES.HOME}>
-						<MantineLogo size={30} />
+						<Image width={100} src={"/images/logo.png"} />
 					</Link>
 
 					<Group className={classes.hiddenMobile}>

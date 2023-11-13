@@ -1,6 +1,5 @@
-import { createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/core';
+import { Image, createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
-import { MantineLogo } from '@mantine/ds';
 
 const useStyles = createStyles( ( theme ) => ( {
     footer: {
@@ -129,7 +128,7 @@ export function Footer( { data }: FooterLinksProps ) {
         <footer className={classes.footer}>
             <Container className={classes.inner}>
                 <div className={classes.logo}>
-                    <MantineLogo size={30} />
+                    <Image src="/images/logo.png" />
                     <Text size="xs" color="dimmed" className={classes.description}>
                         Build fully functional accessible web applications faster than ever
                     </Text>
