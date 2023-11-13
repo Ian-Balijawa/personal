@@ -1,7 +1,7 @@
 import { SimpleGrid, Stack } from '@mantine/core'
 import { ProjectCardGrid } from '../components/ArticlesCardGrid'
 import Layout from '../components/Layout'
-import { TaskCard } from '../components/UserInfoAction'
+import UserInfoAction from '../components/UserInfoAction'
 import { PortfolioHero } from '../components/PortfolioHero'
 import { Helmet } from 'react-helmet'
 import {
@@ -49,7 +49,7 @@ const mockData: FeaturedProjectProps[] = [
 ]
 export default function Portfolio() {
 	const cards = Array.from( { length: 9 } ).map( ( _, index ) => (
-		<TaskCard key={index.toString()} />
+		<UserInfoAction key={index.toString()} />
 	) )
 
 	const featuredProjects = mockData.map( ( project, index ) => (
