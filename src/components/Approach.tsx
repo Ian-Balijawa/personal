@@ -49,5 +49,7 @@ export function DevelopmentApproach() {
         );
     } );
 
-    return <SimpleGrid cols={2}>{approach}</SimpleGrid>;
+    return <SimpleGrid cols={2}
+        breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
+    >{approach}</SimpleGrid>;
 }
