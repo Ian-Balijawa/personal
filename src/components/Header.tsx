@@ -1,15 +1,7 @@
 import {
 	createStyles,
-	Header as Wrapper,
-	HoverCard,
-	Group,
-	Button,
-	UnstyledButton,
-	Text,
-	SimpleGrid,
-	ThemeIcon,
-	Anchor,
-	Divider,
+	Header as Wrapper, Group, UnstyledButton,
+	Text, ThemeIcon, Divider,
 	Center,
 	Box,
 	Burger,
@@ -17,7 +9,7 @@ import {
 	Collapse,
 	ScrollArea,
 	rem,
-	TextInput,
+	TextInput
 } from '@mantine/core'
 import { MantineLogo } from '@mantine/ds'
 import { useDisclosure } from '@mantine/hooks'
@@ -36,7 +28,7 @@ import { Link } from 'react-router-dom'
 import { ROUTES } from '../constants/routes'
 import { spotlight } from '@mantine/spotlight'
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles( theme => ( {
 	wrapper: {
 		borderBottom: 'none',
 		position: 'fixed',
@@ -53,19 +45,19 @@ const useStyles = createStyles(theme => ({
 		fontWeight: 500,
 		fontSize: theme.fontSizes.sm,
 
-		[theme.fn.smallerThan('sm')]: {
-			height: rem(42),
+		[theme.fn.smallerThan( 'sm' )]: {
+			height: rem( 42 ),
 			display: 'flex',
 			alignItems: 'center',
 			width: '100%',
 		},
 
-		...theme.fn.hover({
+		...theme.fn.hover( {
 			backgroundColor:
 				theme.colorScheme === 'dark'
 					? theme.colors.dark[6]
 					: theme.colors.gray[0],
-		}),
+		} ),
 	},
 
 	subLink: {
@@ -73,12 +65,12 @@ const useStyles = createStyles(theme => ({
 		padding: `${theme.spacing.xs} ${theme.spacing.md}`,
 		borderRadius: theme.radius.md,
 
-		...theme.fn.hover({
+		...theme.fn.hover( {
 			backgroundColor:
 				theme.colorScheme === 'dark'
 					? theme.colors.dark[7]
 					: theme.colors.gray[0],
-		}),
+		} ),
 
 		'&:active': theme.activeStyles,
 	},
@@ -92,25 +84,24 @@ const useStyles = createStyles(theme => ({
 		marginTop: theme.spacing.sm,
 		padding: `${theme.spacing.md} calc(${theme.spacing.md} * 2)`,
 		paddingBottom: theme.spacing.xl,
-		borderTop: `${rem(1)} solid ${
-			theme.colorScheme === 'dark'
-				? theme.colors.dark[5]
-				: theme.colors.gray[1]
-		}`,
+		borderTop: `${rem( 1 )} solid ${theme.colorScheme === 'dark'
+			? theme.colors.dark[5]
+			: theme.colors.gray[1]
+			}`,
 	},
 
 	hiddenMobile: {
-		[theme.fn.smallerThan('sm')]: {
+		[theme.fn.smallerThan( 'sm' )]: {
 			display: 'none',
 		},
 	},
 
 	hiddenDesktop: {
-		[theme.fn.largerThan('sm')]: {
+		[theme.fn.largerThan( 'sm' )]: {
 			display: 'none',
 		},
 	},
-}))
+} ) )
 
 const mockdata = [
 	{
@@ -147,15 +138,15 @@ const mockdata = [
 
 export function Header() {
 	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
-		useDisclosure(false)
-	const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false)
+		useDisclosure( false )
+	const [linksOpened, { toggle: toggleLinks }] = useDisclosure( false )
 	const { classes, theme } = useStyles()
 
-	const links = mockdata.map(item => (
+	const links = mockdata.map( item => (
 		<UnstyledButton className={classes.subLink} key={item.title}>
 			<Group noWrap align="flex-start">
 				<ThemeIcon size={34} variant="default" radius="md">
-					<item.icon size={rem(22)} color={theme.fn.primaryColor()} />
+					<item.icon size={rem( 22 )} color={theme.fn.primaryColor()} />
 				</ThemeIcon>
 				<div>
 					<Text size="sm" fw={500}>
@@ -167,7 +158,7 @@ export function Header() {
 				</div>
 			</Group>
 		</UnstyledButton>
-	))
+	) )
 
 	return (
 		<Box>
@@ -177,91 +168,12 @@ export function Header() {
 						<MantineLogo size={30} />
 					</Link>
 
-					<Group
-						sx={{ height: '100%' }}
-						spacing={0}
-						className={classes.hiddenMobile}
-					>
-						<Link to={ROUTES.HOME} className={classes.link}>
-							Home
-						</Link>
-						<HoverCard
-							width={600}
-							position="bottom"
-							radius="md"
-							shadow="md"
-							withinPortal
-						>
-							<HoverCard.Target>
-								<Link to={'#'} className={classes.link}>
-									<Center inline>
-										<Box component="span" mr={5}>
-											Features
-										</Box>
-										<IconChevronDown
-											size={16}
-											color={theme.fn.primaryColor()}
-										/>
-									</Center>
-								</Link>
-							</HoverCard.Target>
-
-							<HoverCard.Dropdown sx={{ overflow: 'hidden' }}>
-								<Group position="apart" px="md">
-									<Text fw={500}>Features</Text>
-									<Anchor href="#" fz="xs">
-										View all
-									</Anchor>
-								</Group>
-
-								<Divider
-									my="sm"
-									mx="-md"
-									color={
-										theme.colorScheme === 'dark'
-											? 'dark.5'
-											: 'gray.1'
-									}
-								/>
-
-								<SimpleGrid cols={2} spacing={0}>
-									{links}
-								</SimpleGrid>
-
-								<div className={classes.dropdownFooter}>
-									<Group position="apart">
-										<div>
-											<Text fw={500} fz="sm">
-												Get started
-											</Text>
-											<Text size="xs" color="dimmed">
-												Their food sources have
-												decreased, and their numbers
-											</Text>
-										</div>
-										<Button variant="default">
-											Get started
-										</Button>
-									</Group>
-								</div>
-							</HoverCard.Dropdown>
-						</HoverCard>
-						<Link to={ROUTES.BLOG} className={classes.link}>
-							Blog
-						</Link>
-						<Link to={ROUTES.ACADEMY} className={classes.link}>
-							Academy
-						</Link>
-						<Link to={ROUTES.ESTIMATOR} className={classes.link}>
-							Estimator
-						</Link>
-					</Group>
-
 					<Group className={classes.hiddenMobile}>
 						<TextInput
 							placeholder="Search website"
 							onClick={() => spotlight.open()}
-							icon={<IconSearch />}
+							size='xs'
+							icon={<IconSearch size={rem( 15 )} />}
 						/>
 						<SegmentedToggle />
 					</Group>
@@ -282,7 +194,7 @@ export function Header() {
 				className={classes.hiddenDesktop}
 				zIndex={1000000}
 			>
-				<ScrollArea h={`calc(100vh - ${rem(60)})`} mx="-md">
+				<ScrollArea h={`calc(100vh - ${rem( 60 )})`} mx="-md">
 					<Divider
 						my="sm"
 						color={
@@ -308,16 +220,6 @@ export function Header() {
 						</Center>
 					</UnstyledButton>
 					<Collapse in={linksOpened}>{links}</Collapse>
-					<Link to={ROUTES.BLOG} className={classes.link}>
-						Blog
-					</Link>
-					<Link to={ROUTES.ACADEMY} className={classes.link}>
-						Academy
-					</Link>
-					<Link to={ROUTES.ESTIMATOR} className={classes.link}>
-						Estimator
-					</Link>
-
 					<Divider
 						my="sm"
 						color={

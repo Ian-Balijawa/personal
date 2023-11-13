@@ -21,7 +21,7 @@ import { IconBrandReact } from '@tabler/icons-react'
 import { getFirstMinimalDescription } from '../utils/minimise-description'
 import { IconBrandTypescript } from '@tabler/icons-react'
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles( theme => ( {
 	card: {
 		backgroundColor:
 			theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
@@ -40,11 +40,10 @@ const useStyles = createStyles(theme => ({
 	},
 
 	section: {
-		borderBottom: `${rem(1)} solid ${
-			theme.colorScheme === 'dark'
+		borderBottom: `${rem( 1 )} solid ${theme.colorScheme === 'dark'
 				? theme.colors.dark[4]
 				: theme.colors.gray[3]
-		}`,
+			}`,
 		paddingLeft: theme.spacing.md,
 		paddingRight: theme.spacing.md,
 		paddingBottom: theme.spacing.md,
@@ -61,28 +60,28 @@ const useStyles = createStyles(theme => ({
 	},
 	carousel: {
 		'&:hover': {
-			[`& .${getStylesRef('carouselControls')}`]: {
+			[`& .${getStylesRef( 'carouselControls' )}`]: {
 				opacity: 1,
 			},
 		},
 	},
 
 	carouselControls: {
-		ref: getStylesRef('carouselControls'),
+		ref: getStylesRef( 'carouselControls' ),
 		transition: 'opacity 150ms ease',
 		opacity: 0,
 	},
 
 	carouselIndicator: {
-		width: rem(4),
-		height: rem(4),
+		width: rem( 4 ),
+		height: rem( 4 ),
 		transition: 'width 250ms ease',
 
 		'&[data-active]': {
-			width: rem(16),
+			width: rem( 16 ),
 		},
 	},
-}))
+} ) )
 
 interface BadgeCardProps {
 	images: string[]
@@ -95,16 +94,16 @@ interface BadgeCardProps {
 	}[]
 }
 
-export function BadgeCard({
+export function BadgeCard( {
 	images,
 	title,
 	description,
 	type,
 	badges,
-}: BadgeCardProps) {
+}: BadgeCardProps ) {
 	const { classes, theme } = useStyles()
 
-	const features = badges.map(badge => (
+	const features = badges.map( badge => (
 		<Button
 			variant="light"
 			radius="xl"
@@ -115,13 +114,13 @@ export function BadgeCard({
 		>
 			{badge.label}
 		</Button>
-	))
+	) )
 
-	const slides = images.map(image => (
+	const slides = images.map( image => (
 		<Carousel.Slide key={image}>
 			<Image src={image} height={220} />
 		</Carousel.Slide>
-	))
+	) )
 
 	return (
 		<Card withBorder radius="md" p="md" className={classes.card}>
@@ -147,7 +146,7 @@ export function BadgeCard({
 					<Badge size="sm">{type}</Badge>
 				</Group>
 				<Text fz="sm" mt="xs">
-					{getFirstMinimalDescription(description)}
+					{getFirstMinimalDescription( description )}
 				</Text>
 			</Card.Section>
 
@@ -397,109 +396,5 @@ export const data = [
 			},
 		],
 	},
-	{
-		images: [
-			'https://iyn.vercel.app/images/cefs.png',
-			'https://iyn.vercel.app/images/mysite.png',
-			'https://iyn.vercel.app/images/delv.png',
-			'https://iyn.vercel.app/images/dissertation.png',
-			'https://iyn.vercel.app/images/gol.png',
-		],
-		title: 'Verudela Beach',
-		type: 'Croatia',
-		description:
-			'Completely renovated for the season 2020, Arena Verudela Bech Apartments are fully equipped and modernly furnished 4-star self-service apartments located on the Adriatic coastline by one of the most beautiful beaches in Pula.',
-		badges: [
-			{
-				icon: '☀️',
-				label: 'Sunny weather',
-			},
-			{
-				icon: '🦓',
-				label: 'Onsite zoo',
-			},
-			{
-				icon: '🌊',
-				label: 'Sea',
-			},
-			{
-				icon: '🌲',
-				label: 'Nature',
-			},
-			{
-				icon: '🤽',
-				label: 'Water sports',
-			},
-		],
-	},
-	{
-		images: [
-			'https://iyn.vercel.app/images/cefs.png',
-			'https://iyn.vercel.app/images/mysite.png',
-			'https://iyn.vercel.app/images/delv.png',
-			'https://iyn.vercel.app/images/dissertation.png',
-			'https://iyn.vercel.app/images/gol.png',
-		],
-		title: 'Verudela Beach',
-		type: 'Croatia',
-		description:
-			'Completely renovated for the season 2020, Arena Verudela Bech Apartments are fully equipped and modernly furnished 4-star self-service apartments located on the Adriatic coastline by one of the most beautiful beaches in Pula.',
-		badges: [
-			{
-				icon: '☀️',
-				label: 'Sunny weather',
-			},
-			{
-				icon: '🦓',
-				label: 'Onsite zoo',
-			},
-			{
-				icon: '🌊',
-				label: 'Sea',
-			},
-			{
-				icon: '🌲',
-				label: 'Nature',
-			},
-			{
-				icon: '🤽',
-				label: 'Water sports',
-			},
-		],
-	},
-	{
-		images: [
-			'https://iyn.vercel.app/images/cefs.png',
-			'https://iyn.vercel.app/images/mysite.png',
-			'https://iyn.vercel.app/images/delv.png',
-			'https://iyn.vercel.app/images/dissertation.png',
-			'https://iyn.vercel.app/images/gol.png',
-		],
-		title: 'Verudela Beach',
-		type: 'Croatia',
-		description:
-			'Completely renovated for the season 2020, Arena Verudela Bech Apartments are fully equipped and modernly furnished 4-star self-service apartments located on the Adriatic coastline by one of the most beautiful beaches in Pula.',
-		badges: [
-			{
-				icon: '☀️',
-				label: 'Sunny weather',
-			},
-			{
-				icon: '🦓',
-				label: 'Onsite zoo',
-			},
-			{
-				icon: '🌊',
-				label: 'Sea',
-			},
-			{
-				icon: '🌲',
-				label: 'Nature',
-			},
-			{
-				icon: '🤽',
-				label: 'Water sports',
-			},
-		],
-	},
+
 ]

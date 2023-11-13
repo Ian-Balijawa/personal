@@ -105,7 +105,7 @@ export function HeroBlog() {
                             className={classes.control}
                             mt={40}
                         >
-                            Get started
+                            View portfolio
                         </Button>
                     </div>
                 </div>

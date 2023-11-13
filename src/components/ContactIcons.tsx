@@ -45,6 +45,7 @@ const useStyles = createStyles( ( theme, { variant }: ContactIconStyles ) => ( {
 
 interface ContactIconProps
 	extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	icon: React.FC<any>
 	title: React.ReactNode
 	description: React.ReactNode
@@ -88,11 +89,11 @@ interface ContactIconsListProps {
 }
 
 const MOCKDATA = [
-	{ title: 'Email', description: 'hello@mantine.dev', icon: IconAt },
-	{ title: 'Phone', description: '+49 (800) 335 35 35', icon: IconPhone },
+	{ title: 'Email', description: 'hello@tlabs.net', icon: IconAt },
+	{ title: 'Phone', description: '+256787444814', icon: IconPhone },
 	{
 		title: 'Address',
-		description: '844 Morris Park avenue',
+		description: 'Makerere University School of computing',
 		icon: IconMapPin,
 	},
 	{ title: 'Working hours', description: '8 a.m. – 11 p.m.', icon: IconSun },

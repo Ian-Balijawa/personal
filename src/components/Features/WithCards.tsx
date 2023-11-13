@@ -33,13 +33,13 @@ const mockdata = [
 	},
 ]
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles( theme => ( {
 	title: {
-		fontSize: rem(34),
+		fontSize: rem( 34 ),
 		fontWeight: 900,
 
-		[theme.fn.smallerThan('sm')]: {
-			fontSize: rem(24),
+		[theme.fn.smallerThan( 'sm' )]: {
+			fontSize: rem( 24 ),
 		},
 	},
 
@@ -51,8 +51,8 @@ const useStyles = createStyles(theme => ({
 			content: '""',
 			display: 'block',
 			backgroundColor: theme.fn.primaryColor(),
-			width: rem(45),
-			height: rem(2),
+			width: rem( 45 ),
+			height: rem( 2 ),
 			marginTop: theme.spacing.sm,
 			marginLeft: 'auto',
 			marginRight: 'auto',
@@ -60,11 +60,10 @@ const useStyles = createStyles(theme => ({
 	},
 
 	card: {
-		border: `${rem(1)} solid ${
-			theme.colorScheme === 'dark'
-				? theme.colors.dark[5]
-				: theme.colors.gray[1]
-		}`,
+		border: `${rem( 1 )} solid ${theme.colorScheme === 'dark'
+			? theme.colors.dark[5]
+			: theme.colors.gray[1]
+			}`,
 	},
 
 	cardTitle: {
@@ -72,16 +71,16 @@ const useStyles = createStyles(theme => ({
 			content: '""',
 			display: 'block',
 			backgroundColor: theme.fn.primaryColor(),
-			width: rem(45),
-			height: rem(2),
+			width: rem( 45 ),
+			height: rem( 2 ),
 			marginTop: theme.spacing.sm,
 		},
 	},
-}))
+} ) )
 
 export function WithCards() {
 	const { classes, theme } = useStyles()
-	const features = mockdata.map(feature => (
+	const features = mockdata.map( feature => (
 		<Card
 			key={feature.title}
 			shadow="md"
@@ -90,7 +89,7 @@ export function WithCards() {
 			padding="xl"
 		>
 			<feature.icon
-				size={rem(50)}
+				size={rem( 50 )}
 				stroke={2}
 				color={theme.fn.primaryColor()}
 			/>
@@ -101,7 +100,7 @@ export function WithCards() {
 				{feature.description}
 			</Text>
 		</Card>
-	))
+	) )
 
 	return (
 		<Container size="xl" py="xl">
@@ -112,7 +111,7 @@ export function WithCards() {
 			</Group>
 
 			<Title order={2} className={classes.title} ta="center" mt="sm">
-				Custom Mobile Application Development Services I Provide
+				Custom Mobile Application Development Services We Provide
 			</Title>
 
 			<Text

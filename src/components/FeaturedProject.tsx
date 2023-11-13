@@ -16,7 +16,7 @@ import { ROUTES } from '../constants/routes'
 import { Link } from 'react-router-dom'
 import { IconBrandGithub } from '@tabler/icons-react'
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles( theme => ( {
 	wrapper: {
 		position: 'relative',
 	},
@@ -27,7 +27,7 @@ const useStyles = createStyles(theme => ({
 				? theme.colors.dark[5]
 				: theme.colors.gray[1],
 
-		[theme.fn.smallerThan('sm')]: {
+		[theme.fn.smallerThan( 'sm' )]: {
 			display: 'none',
 		},
 	},
@@ -42,9 +42,9 @@ const useStyles = createStyles(theme => ({
 		paddingTop: `calc(${theme.spacing.xl} * 4)`,
 		position: 'relative',
 		zIndex: 1,
-		[theme.fn.smallerThan('md')]: {
+		[theme.fn.smallerThan( 'md' )]: {
 			flexDirection: 'column',
-			marginBottom: rem(20),
+			marginBottom: rem( 20 ),
 		},
 	},
 	innerLeft: {
@@ -54,19 +54,19 @@ const useStyles = createStyles(theme => ({
 		alignItems: 'flex-start',
 		paddingTop: `calc(${theme.spacing.xl} * 4)`,
 		position: 'relative',
-		gap: rem(40),
+		gap: rem( 40 ),
 		zIndex: 1,
-		[theme.fn.smallerThan('md')]: {
+		[theme.fn.smallerThan( 'md' )]: {
 			flexDirection: 'column',
-			marginBottom: rem(20),
+			marginBottom: rem( 20 ),
 		},
 	},
 
 	content: {
-		maxWidth: rem(480),
+		maxWidth: rem( 480 ),
 		marginRight: `calc(${theme.spacing.xl} * 3)`,
 
-		[theme.fn.smallerThan('md')]: {
+		[theme.fn.smallerThan( 'md' )]: {
 			maxWidth: '100%',
 			marginRight: 0,
 		},
@@ -75,27 +75,27 @@ const useStyles = createStyles(theme => ({
 	title: {
 		color: theme.colorScheme === 'dark' ? theme.white : theme.black,
 		fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-		fontSize: rem(44),
+		fontSize: rem( 44 ),
 		lineHeight: 1.2,
 		fontWeight: 900,
 
-		[theme.fn.smallerThan('xs')]: {
-			fontSize: rem(28),
+		[theme.fn.smallerThan( 'xs' )]: {
+			fontSize: rem( 28 ),
 		},
 	},
 
 	control: {
-		[theme.fn.smallerThan('xs')]: {
+		[theme.fn.smallerThan( 'xs' )]: {
 			flex: 1,
 		},
 	},
 	image: {
 		flex: 1,
-		[theme.fn.smallerThan('md')]: {
-			marginTop: rem(20),
+		[theme.fn.smallerThan( 'md' )]: {
+			marginTop: rem( 20 ),
 		},
 	},
-}))
+} ) )
 
 export interface FeaturedProjectProps {
 	image: string
@@ -106,14 +106,14 @@ export interface FeaturedProjectProps {
 	github: string
 }
 
-export function FeatureProject({
+export function FeatureProject( {
 	image,
 	title,
 	description,
 	link,
 	direction,
 	github,
-}: FeaturedProjectProps) {
+}: FeaturedProjectProps ) {
 	const { classes } = useStyles()
 	return (
 		<Paper className={classes.wrapper}>
@@ -141,7 +141,7 @@ export function FeatureProject({
 						size="sm"
 						icon={
 							<ThemeIcon size={20} radius="xl">
-								<IconCheck size={rem(12)} stroke={1.5} />
+								<IconCheck size={rem( 12 )} stroke={1.5} />
 							</ThemeIcon>
 						}
 					>

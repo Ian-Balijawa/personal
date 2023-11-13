@@ -1,7 +1,7 @@
 import { SimpleGrid, Stack } from '@mantine/core'
-import { ArticlesCardsGrid } from '../components/ArticlesCardGrid'
+import { ProjectCardGrid } from '../components/ArticlesCardGrid'
 import Layout from '../components/Layout'
-import { TaskCard } from '../components/TaskCard'
+import { TaskCard } from '../components/UserInfoAction'
 import { PortfolioHero } from '../components/PortfolioHero'
 import { Helmet } from 'react-helmet'
 import {
@@ -20,7 +20,7 @@ const meta = (
 
 const mockData: FeaturedProjectProps[] = [
 	{
-		title: 'Featured Project 1',
+		title: 'Case Study 1',
 		description:
 			'We have ompleted many projects on time and budget in different domains for dynamic small to medium businesses and startups',
 		image: 'https://iyn.vercel.app/images/theme.png',
@@ -29,7 +29,7 @@ const mockData: FeaturedProjectProps[] = [
 		github: 'https://github.com/Ian-Balijawa/my-site.git',
 	},
 	{
-		title: 'Featured Project 2',
+		title: 'Case Study 2',
 		description:
 			'We have ompleted many projects on time and budget in different domains for dynamic small to medium businesses and startups',
 		image: 'https://iyn.vercel.app/images/silverlight.png',
@@ -38,7 +38,7 @@ const mockData: FeaturedProjectProps[] = [
 		github: 'https://github.com/Ian-Balijawa/my-site.git',
 	},
 	{
-		title: 'Featured Project 3',
+		title: 'Case Study 3',
 		description:
 			'We have ompleted many projects on time and budget in different domains for dynamic small to medium businesses and startups',
 		image: 'https://iyn.vercel.app/images/mysite.png',
@@ -48,13 +48,13 @@ const mockData: FeaturedProjectProps[] = [
 	},
 ]
 export default function Portfolio() {
-	const cards = Array.from({ length: 9 }).map((_, index) => (
+	const cards = Array.from( { length: 9 } ).map( ( _, index ) => (
 		<TaskCard key={index.toString()} />
-	))
+	) )
 
-	const featuredProjects = mockData.map((project, index) => (
+	const featuredProjects = mockData.map( ( project, index ) => (
 		<FeatureProject key={index.toString()} {...project} />
-	))
+	) )
 
 	return (
 		<>
@@ -63,7 +63,7 @@ export default function Portfolio() {
 				<PortfolioHero />
 				<Stack>
 					{featuredProjects}
-					<ArticlesCardsGrid />
+					<ProjectCardGrid />
 					<SimpleGrid
 						cols={3}
 						breakpoints={[{ maxWidth: 'sm', cols: 1 }]}

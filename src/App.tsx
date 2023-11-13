@@ -3,12 +3,10 @@ import { useRoutes } from "react-router-dom"
 import { ROUTES } from './constants/routes'
 import { Loadable } from './components/Loadable'
 
-
 const Home = Loadable( lazy( () => import( "./pages/Home" ) ) )
 const NotFound = Loadable( lazy( () => import( "./pages/404" ) ) )
 const Portfolio = Loadable( lazy( () => import( "./pages/Portfolio" ) ) )
 const Blog = Loadable( lazy( () => import( "./pages/Blog" ) ) )
-const Academy = Loadable( lazy( () => import( "./pages/Academy" ) ) )
 const Estimator = Loadable( lazy( () => import( "./pages/Estimator" ) ) )
 
 export default function App() {
@@ -20,10 +18,6 @@ export default function App() {
     {
       path: ROUTES.PORTFOLIO,
       element: <Portfolio />,
-    },
-    {
-      path: ROUTES.ACADEMY,
-      element: <Academy />,
     },
     {
       path: ROUTES.BLOG,

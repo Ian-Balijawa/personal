@@ -30,10 +30,10 @@ export const mockdata: MockData[] = [
 	},
 ]
 
-export function ArticlesCardsGrid() {
-	const cards = data.map((_, index) => (
+export function ProjectCardGrid() {
+	const cards = data.map( ( _, index ) => (
 		<BadgeCard key={index} {...data[index]} />
-	))
+	) )
 
 	return (
 		<Container py={'xl'} size="xl">

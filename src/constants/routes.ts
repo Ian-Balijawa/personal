@@ -3,7 +3,6 @@ export const ROUTES = {
 	ESTIMATOR: '/estimator',
 	PORTFOLIO: '/portfolio',
 	PROJECTS: '/projects',
-	ACADEMY: '/academy',
 	CONTACT: '/contact',
 	SKILLS: '/skills',
 	RESUME: '/resume',

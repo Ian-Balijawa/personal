@@ -115,7 +115,7 @@ export function ArticleCard( {
 export const articles =
 {
     "image": "/images/resident-evil.png" || "https://i.imgur.com/Cij5vdL.png",
-    "link": "https://mantine.dev/",
+    "link": "https://tlabs.net/",
     "title": "Resident Evil Village review",
     "rating": "outstanding",
     "description": "Resident Evil Village is a direct sequel to 2017’s Resident Evil 7, but takes a very different direction to its predecessor, namely the fact that this time round instead of fighting against various mutated zombies, you’re now dealing with more occult enemies like werewolves and vampires.",

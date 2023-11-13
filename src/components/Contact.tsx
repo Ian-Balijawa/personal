@@ -123,7 +123,7 @@ export function GetInTouch() {
                     <div className={classes.fields}>
                         <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
                             <TextInput label="Your name" placeholder="Your name" />
-                            <TextInput label="Your email" placeholder="hello@mantine.dev" required />
+                            <TextInput label="Your email" placeholder="hello@tlabs.net" required />
                         </SimpleGrid>
 
                         <TextInput mt="md" label="Subject" placeholder="Subject" required />

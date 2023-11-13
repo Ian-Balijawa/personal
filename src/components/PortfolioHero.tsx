@@ -1,12 +1,9 @@
-import { createStyles, Title, Text, Button, Container, rem } from '@mantine/core';
+import { createStyles, Container, rem, Title, Text } from '@mantine/core';
 import { Dots } from './Dots';
 
 const useStyles = createStyles( ( theme ) => ( {
     wrapper: {
         position: 'relative',
-        paddingTop: rem( 200 ),
-        paddingBottom: rem( 120 ),
-
         [theme.fn.smallerThan( 'sm' )]: {
             paddingTop: rem( 80 ),
             paddingBottom: rem( 60 ),
@@ -35,7 +32,7 @@ const useStyles = createStyles( ( theme ) => ( {
     title: {
         textAlign: 'center',
         fontWeight: 900,
-        fontSize: rem( 80 ),
+        fontSize: rem( 50 ),
         letterSpacing: -1,
         color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         marginBottom: theme.spacing.xs,
@@ -61,7 +58,6 @@ const useStyles = createStyles( ( theme ) => ( {
     },
 
     controls: {
-        marginTop: theme.spacing.lg,
         display: 'flex',
         justifyContent: 'center',
 
@@ -91,7 +87,7 @@ export function PortfolioHero() {
     const { classes } = useStyles();
 
     return (
-        <Container className={classes.wrapper} size={1400}>
+        <Container className={classes.wrapper} >
             <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
             <Dots className={classes.dots} style={{ left: 60, top: 0 }} />
             <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
@@ -99,28 +95,11 @@ export function PortfolioHero() {
 
             <div className={classes.inner}>
                 <Title className={classes.title}>
-                    Automated AI{' '}
+                    Our Recent{' '}
                     <Text component="span" className={classes.highlight} inherit>
-                        code reviews
+                        Case Studies
                     </Text>{' '}
-                    for any stack
                 </Title>
-
-                <Container p={0} size={600}>
-                    <Text size="lg" color="dimmed" className={classes.description}>
-                        Build more reliable software with AI companion. AI is also trained to detect lazy
-                        developers who do nothing and just complain on Twitter.
-                    </Text>
-                </Container>
-
-                <div className={classes.controls}>
-                    <Button radius="xl" className={classes.control} size="lg" variant="default" color="gray">
-                        Book a demo
-                    </Button>
-                    <Button radius="xl" className={classes.control} size="lg">
-                        Purchase a license
-                    </Button>
-                </div>
             </div>
         </Container>
     );

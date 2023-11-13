@@ -9,6 +9,7 @@ export default function SegmentedToggle() {
             <SegmentedControl
                 value={colorScheme}
                 onChange={( value: 'light' | 'dark' ) => toggleColorScheme( value )}
+                size='xs'
                 data={[
                     {
                         value: 'light',
