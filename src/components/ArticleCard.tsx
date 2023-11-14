@@ -84,7 +84,7 @@ export function ArticleCard( {
                 {title}
             </Text>
 
-            <Text fz="sm" color="dimmed" lineClamp={4}>
+            <Text fz="sm" color="white" lineClamp={4}>
                 {description}
             </Text>
 

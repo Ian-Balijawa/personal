@@ -128,14 +128,14 @@ export function Footer( { data }: FooterLinksProps ) {
             <Container className={classes.inner}>
                 <div className={classes.logo}>
                     <Image src="/images/logo.png" />
-                    <Text size="xs" color="dimmed" className={classes.description}>
+                    <Text size="xs" color="white" className={classes.description}>
                         Build fully functional accessible web applications faster than ever
                     </Text>
                 </div>
                 <div className={classes.groups}>{groups}</div>
             </Container>
             <Container className={classes.afterFooter}>
-                <Text color="dimmed" size="sm">
+                <Text color="white" size="sm">
                     © 2020 tlabs.net. All rights reserved.
                 </Text>
 

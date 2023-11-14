@@ -44,7 +44,7 @@ export function SizeCard( {
             <Group noWrap spacing={0}>
                 <Image src={image} height={140} width={140} />
                 <div className={classes.body}>
-                    <Text transform="uppercase" color="dimmed" weight={700} size="xs">
+                    <Text transform="uppercase" color="white" weight={700} size="xs">
                         {category}
                     </Text>
                     <Text className={classes.title} mt="xs" mb="md">
@@ -55,10 +55,10 @@ export function SizeCard( {
                             <Avatar size={20} src={author.avatar} />
                             <Text size="xs">{author.name}</Text>
                         </Group>
-                        <Text size="xs" color="dimmed">
+                        <Text size="xs" color="white">
                             •
                         </Text>
-                        <Text size="xs" color="dimmed">
+                        <Text size="xs" color="white">
                             {date}
                         </Text>
                     </Group>

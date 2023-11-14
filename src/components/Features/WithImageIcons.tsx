@@ -98,7 +98,7 @@ export function FeaturesImages( { supTitle, description, data }: FeaturesImagesP
             </Title>
 
             <Container size={660} p={0}>
-                <Text color="dimmed" className={classes.description}>
+                <Text color="white" className={classes.description}>
                     {description}
                 </Text>
             </Container>

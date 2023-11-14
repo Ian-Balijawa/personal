@@ -10,7 +10,6 @@ import {
     rem,
 } from '@mantine/core';
 import { ContactIconsList } from './ContactIcons.tsx';
-import bg from '../assets/bg.svg';
 
 const useStyles = createStyles( ( theme ) => {
     const BREAKPOINT = theme.fn.smallerThan( 'sm' );
@@ -18,10 +17,7 @@ const useStyles = createStyles( ( theme ) => {
     return {
         wrapper: {
             display: 'flex',
-            borderRadius: theme.radius.lg,
             padding: rem( 4 ),
-            border: `${rem( 1 )} solid ${theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2]
-                }`,
             background: "transparent",
 
 
@@ -35,7 +31,6 @@ const useStyles = createStyles( ( theme ) => {
             flex: 1,
             padding: theme.spacing.xl,
             paddingLeft: `calc(${theme.spacing.xl} * 2)`,
-            borderLeft: 0,
 
             [BREAKPOINT]: {
                 padding: theme.spacing.md,
@@ -72,10 +67,10 @@ const useStyles = createStyles( ( theme ) => {
             boxSizing: 'border-box',
             position: 'relative',
             borderRadius: theme.radius.lg,
-            backgroundImage: `url(${bg})`,
+            background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            border: `${rem( 1 )} solid transparent`,
             padding: theme.spacing.xl,
             flex: `0 0 ${rem( 280 )}`,
 
@@ -110,7 +105,7 @@ export function GetInTouch() {
     const { classes } = useStyles();
 
     return (
-        <Paper shadow="md" bg="transparent" radius="lg">
+        <Paper withBorder shadow="md" bg="transparent" radius="lg">
             <div className={classes.wrapper}>
                 <div className={classes.contacts}>
                     <Text fz="lg" fw={700} className={classes.title} c="#fff">
@@ -127,13 +122,14 @@ export function GetInTouch() {
 
                     <div className={classes.fields}>
                         <SimpleGrid cols={2} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-                            <TextInput label="Your name" placeholder="Your name" />
-                            <TextInput label="Your email" placeholder="hello@tlabs.net" required />
+                            <TextInput sx={{ borderBottom: "1px solid gray" }} variant='unstyled' label="Your name" placeholder="Your name" />
+                            <TextInput sx={{ borderBottom: "1px solid gray" }} variant='unstyled' label="Your email" placeholder="hello@tlabs.net" required />
                         </SimpleGrid>
 
-                        <TextInput mt="md" label="Subject" placeholder="Subject" required />
+                        <TextInput sx={{ borderBottom: "1px solid gray" }} variant='unstyled' mt="md" label="Subject" placeholder="Subject" required />
 
                         <Textarea
+                            sx={{ borderBottom: "1px solid gray" }} variant='unstyled'
                             mt="md"
                             label="Your message"
                             placeholder="Please include all relevant information"

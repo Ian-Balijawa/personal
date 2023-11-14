@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 import { ArticleCard, articles } from '../components/ArticleCard'
 import { Helmet } from 'react-helmet'
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles( theme => ( {
 	card: {
 		backgroundColor:
 			theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
@@ -19,7 +19,7 @@ const useStyles = createStyles(theme => ({
 	body: {
 		padding: theme.spacing.md,
 	},
-}))
+} ) )
 
 const meta = (
 	<Helmet>
@@ -41,9 +41,9 @@ export default function Blog() {
 					cols={3}
 					breakpoints={[{ maxWidth: 'sm', cols: 1 }]}
 				>
-					{Array.from({ length: 12 }).map((_, index) => (
+					{Array.from( { length: 12 } ).map( ( _, index ) => (
 						<ArticleCard key={index.toString()} {...articles} />
-					))}
+					) )}
 				</SimpleGrid>
 			</Layout>
 		</>
@@ -61,13 +61,13 @@ interface FeatureBlogProps {
 	}
 }
 
-export function FeatureBlog({
+export function FeatureBlog( {
 	image,
 	category,
 	title,
 	date,
 	author,
-}: FeatureBlogProps) {
+}: FeatureBlogProps ) {
 	const { classes } = useStyles()
 	return (
 		<Card my="lg" withBorder radius="md" p={0} className={classes.card}>
@@ -76,7 +76,7 @@ export function FeatureBlog({
 				<div className={classes.body}>
 					<Text
 						transform="uppercase"
-						color="dimmed"
+						color="white"
 						weight={700}
 						size="xs"
 					>
@@ -90,10 +90,10 @@ export function FeatureBlog({
 							<Avatar size={20} src={author.avatar} />
 							<Text size="xs">{author.name}</Text>
 						</Group>
-						<Text size="xs" color="dimmed">
+						<Text size="xs" color="white">
 							•
 						</Text>
-						<Text size="xs" color="dimmed">
+						<Text size="xs" color="white">
 							{date}
 						</Text>
 					</Group>

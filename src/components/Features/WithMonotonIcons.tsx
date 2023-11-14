@@ -43,14 +43,19 @@ interface FeatureProps {
 
 export function Feature( { icon: Icon, title, description }: FeatureProps ) {
     return (
-        <Paper bg={"transparent"} shadow='xl' p="md" radius={"lg"}>
+        <Paper sx={{
+            cursor: "pointer",
+            '&:hover': {
+                boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
+            }
+        }} bg={'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)'} shadow='xl' p="md" radius={"lg"}>
             <ThemeIcon variant="light" size={40} radius={40}>
                 <Icon size="1.1rem" stroke={1.5} />
             </ThemeIcon>
-            <Text mt="sm" mb={7}>
+            <Text c="white" mt="sm" mb={7}>
                 {title}
             </Text>
-            <Text size="sm" color="dimmed" sx={{ lineHeight: 1.6 }}>
+            <Text c="white" size="sm" sx={{ lineHeight: 1.6 }}>
                 {description}
             </Text>
         </Paper>
