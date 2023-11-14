@@ -2,11 +2,6 @@ import { Avatar, Text, Button, Paper, Flex, createStyles } from '@mantine/core';
 import { IconExternalLink } from '@tabler/icons-react';
 import { IconBrandLinkedin } from '@tabler/icons-react';
 
-
-
-
-
-
 const useStyles = createStyles( () => ( {
     root: {
         background: "transparent",
