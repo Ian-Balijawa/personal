@@ -52,7 +52,7 @@ const useStyles = createStyles( theme => ( {
         fontWeight: 900,
         fontSize: rem( 80 ),
         letterSpacing: -1,
-        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        color: theme.white,
         marginBottom: theme.spacing.xs,
         fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
@@ -137,7 +137,7 @@ export function HeroEstimator() {
                         size="lg"
                         fz={20}
                         mt={20}
-                        c="dimmed"
+
                         className={classes.description}
                     >
                         My Estimator is a free and open-source tool for
@@ -150,7 +150,7 @@ export function HeroEstimator() {
                 </Container>
 
                 <Center my="xl">
-                    <Text c="dimmed" fw="bold" fz="xl">
+                    <Text fw="bold" fz="xl">
                         Select Prefered Currency
                     </Text>
                 </Center>

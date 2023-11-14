@@ -4,10 +4,6 @@ import { Dots } from './Dots';
 const useStyles = createStyles( ( theme ) => ( {
     wrapper: {
         position: 'relative',
-        [theme.fn.smallerThan( 'sm' )]: {
-            paddingTop: rem( 80 ),
-            paddingBottom: rem( 60 ),
-        },
     },
 
     inner: {
@@ -19,9 +15,6 @@ const useStyles = createStyles( ( theme ) => ( {
         position: 'absolute',
         color: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
 
-        [theme.fn.smallerThan( 'sm' )]: {
-            display: 'none',
-        },
     },
 
     dotsLeft: {
@@ -34,7 +27,7 @@ const useStyles = createStyles( ( theme ) => ( {
         fontWeight: 900,
         fontSize: rem( 50 ),
         letterSpacing: -1,
-        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        color: theme.white,
         marginBottom: theme.spacing.xs,
         fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 

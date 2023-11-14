@@ -53,7 +53,7 @@ export function PlatformCard( { mockdata, image }: PlatformCardProps ) {
             <Image src={image} alt="app of your choosing" />
 
             <Card.Section className={classes.section} mt="md">
-                <Text fz="sm" c="dimmed" className={classes.label}>
+                <Text fz="sm" className={classes.label}>
                     Basic build tools
                 </Text>
 
@@ -68,7 +68,7 @@ export function PlatformCard( { mockdata, image }: PlatformCardProps ) {
                         <Text fz="xl" fw={700} sx={{ lineHeight: 1 }}>
                             {"IOS"}
                         </Text>
-                        <Text fz="sm" c="dimmed" fw={500} sx={{ lineHeight: 1 }} mt={3}>
+                        <Text fz="sm" fw={500} sx={{ lineHeight: 1 }} mt={3}>
                             Native app for Iphone
                         </Text>
                     </div>

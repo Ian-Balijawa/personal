@@ -35,7 +35,7 @@ const mockdata = [
 
 const useStyles = createStyles( theme => ( {
 	title: {
-		fontSize: rem( 34 ),
+		fontSize: rem( 54 ),
 		fontWeight: 900,
 
 		[theme.fn.smallerThan( 'sm' )]: {
@@ -60,10 +60,11 @@ const useStyles = createStyles( theme => ( {
 	},
 
 	card: {
-		border: `${rem( 1 )} solid ${theme.colorScheme === 'dark'
-			? theme.colors.dark[5]
-			: theme.colors.gray[1]
-			}`,
+		cursor: "pointer",
+		color: "white",
+		background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+		filter: 'progid: DXImageTransform.Microsoft.gradient( startColorstr = "#833ab4", endColorstr = "#fcb045", GradientType = 1 )',
+		boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
 	},
 
 	cardTitle: {
@@ -91,12 +92,12 @@ export function WithCards() {
 			<feature.icon
 				size={rem( 50 )}
 				stroke={2}
-				color={theme.fn.primaryColor()}
+				color={theme.white}
 			/>
 			<Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
 				{feature.title}
 			</Text>
-			<Text fz="sm" c="dimmed" mt="sm">
+			<Text fz="sm" mt="sm">
 				{feature.description}
 			</Text>
 		</Card>
@@ -110,15 +111,15 @@ export function WithCards() {
 				</Badge>
 			</Group>
 
-			<Title order={2} className={classes.title} ta="center" mt="sm">
+			<Title order={2} c="white" className={classes.title} ta="center" mt="sm">
 				Custom Mobile Application Development Services We Provide
 			</Title>
 
 			<Text
-				c="dimmed"
 				className={classes.description}
 				ta="center"
 				mt="md"
+				c="white"
 			>
 				Appearance and functionality — it’s a short list of demands for
 				a good mobile application. No worries I’m a mobile app developer

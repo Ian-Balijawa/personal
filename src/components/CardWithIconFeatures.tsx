@@ -61,7 +61,7 @@ export function FeaturesCard() {
             <Group position="apart" mt="md">
                 <div>
                     <Text fw={500}>Tesla Model S</Text>
-                    <Text fz="xs" c="dimmed">
+                    <Text fz="xs" >
                         Free recharge at any station
                     </Text>
                 </div>
@@ -69,7 +69,7 @@ export function FeaturesCard() {
             </Group>
 
             <Card.Section className={classes.section} mt="md">
-                <Text fz="sm" c="dimmed" className={classes.label}>
+                <Text fz="sm" className={classes.label}>
                     Basic configuration
                 </Text>
 
@@ -84,7 +84,7 @@ export function FeaturesCard() {
                         <Text fz="xl" fw={700} sx={{ lineHeight: 1 }}>
                             $168.00
                         </Text>
-                        <Text fz="sm" c="dimmed" fw={500} sx={{ lineHeight: 1 }} mt={3}>
+                        <Text fz="sm" fw={500} sx={{ lineHeight: 1 }} mt={3}>
                             per day
                         </Text>
                     </div>

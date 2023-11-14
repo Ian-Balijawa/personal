@@ -19,6 +19,7 @@ import { IconBrandGithub } from '@tabler/icons-react'
 const useStyles = createStyles( theme => ( {
 	wrapper: {
 		position: 'relative',
+		background: "transparent"
 	},
 	dots: {
 		position: 'absolute',
@@ -73,7 +74,7 @@ const useStyles = createStyles( theme => ( {
 	},
 
 	title: {
-		color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+		color: theme.white,
 		fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 		fontSize: rem( 44 ),
 		lineHeight: 1.2,
@@ -88,6 +89,14 @@ const useStyles = createStyles( theme => ( {
 		[theme.fn.smallerThan( 'xs' )]: {
 			flex: 1,
 		},
+	},
+
+	btn: {
+		background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+		filter: 'progid: DXImageTransform.Microsoft.gradient( startColorstr = "#833ab4", endColorstr = "#fcb045", GradientType = 1 )',
+		'&:hover': {
+			boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
+		}
 	},
 	image: {
 		flex: 1,
@@ -117,8 +126,6 @@ export function FeatureProject( {
 	const { classes } = useStyles()
 	return (
 		<Paper className={classes.wrapper}>
-			<Dots className={classes.dots} style={{ left: 0, top: 0 }} />
-			<Dots className={classes.dots} style={{ left: 60, top: 0 }} />
 			<Dots className={classes.dots} style={{ left: 0, top: 140 }} />
 			<Dots className={classes.dots} style={{ right: 0, top: 60 }} />
 
@@ -131,7 +138,7 @@ export function FeatureProject( {
 			>
 				<div className={classes.content}>
 					<Title className={classes.title}>{title}</Title>
-					<Text color="dimmed" mt="md">
+					<Text mt="md" color="white" fw="bold" >
 						{description}
 					</Text>
 
@@ -139,6 +146,8 @@ export function FeatureProject( {
 						mt={30}
 						spacing="sm"
 						size="sm"
+						c="white"
+						sx={{ zIndex: 999 }}
 						icon={
 							<ThemeIcon size={20} radius="xl">
 								<IconCheck size={rem( 12 )} stroke={1.5} />
@@ -164,7 +173,7 @@ export function FeatureProject( {
 						<Button
 							radius="lg"
 							size="md"
-							className={classes.control}
+							className={classes.btn}
 							component="a"
 							href={link}
 							rightIcon={<IconExternalLink />}
@@ -174,7 +183,6 @@ export function FeatureProject( {
 						<Link to={ROUTES.PORTFOLIO}>
 							<Button
 								radius="lg"
-								variant="default"
 								size="md"
 								className={classes.control}
 								component="a"

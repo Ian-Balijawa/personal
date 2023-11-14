@@ -4,7 +4,7 @@ import { IconStar } from '@tabler/icons-react';
 
 const useStyles = createStyles( ( theme ) => ( {
     price: {
-        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        color: theme.white,
     },
 
     carousel: {
@@ -78,7 +78,7 @@ export function CarouselCard() {
                 </Group>
             </Group>
 
-            <Text fz="sm" c="dimmed" mt="sm">
+            <Text fz="sm" mt="sm">
                 Relax, rejuvenate and unplug in this unique contemporary Birdbox. Feel close to nature in
                 ultimate comfort. Enjoy the view of the epic mountain range of Blegja and the Førdefjord.
             </Text>
@@ -88,7 +88,7 @@ export function CarouselCard() {
                     <Text fz="xl" span fw={500} className={classes.price}>
                         397$
                     </Text>
-                    <Text span fz="sm" c="dimmed">
+                    <Text span fz="sm" >
                         {' '}
                         / night
                     </Text>

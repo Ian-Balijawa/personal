@@ -1,43 +1,43 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
 	createStyles,
 	Text,
-	SimpleGrid,
-	Container,
-	rem,
+	SimpleGrid, rem,
 	Paper,
 	Badge,
 	Group,
 	Title,
+	useMantineTheme
 } from '@mantine/core'
 import { IconHexagonNumber3 } from '@tabler/icons-react'
 import { IconHexagonNumber1, IconHexagonNumber2 } from '@tabler/icons-react'
+import React from 'react'
 
-const useStyles = createStyles(theme => ({
+const useStyles = createStyles( theme => ( {
 	feature: {
 		position: 'relative',
 		paddingTop: theme.spacing.xl,
 		paddingLeft: theme.spacing.xl,
+		cursor: "pointer",
+		background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+		filter: 'progid: DXImageTransform.Microsoft.gradient( startColorstr = "#833ab4", endColorstr = "#fcb045", GradientType = 1 )',
+		boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
 	},
 	title: {
-		fontSize: rem(54),
+		fontSize: rem( 54 ),
 		fontWeight: 900,
 
-		[theme.fn.smallerThan('sm')]: {
-			fontSize: rem(24),
+		[theme.fn.smallerThan( 'sm' )]: {
+			fontSize: rem( 24 ),
 		},
-		color: theme.colorScheme === 'dark' ? theme.white : theme.black,
 	},
 
 	overlay: {
 		position: 'absolute',
-		height: rem(100),
-		width: rem(160),
+		height: rem( 100 ),
+		width: rem( 160 ),
 		top: 0,
 		left: 0,
-		backgroundColor: theme.fn.variant({
-			variant: 'light',
-			color: theme.primaryColor,
-		}).background,
 		zIndex: 1,
 	},
 
@@ -47,10 +47,10 @@ const useStyles = createStyles(theme => ({
 	},
 
 	icon: {
-		color: theme.fn.variant({ variant: 'light', color: theme.primaryColor })
+		color: theme.fn.variant( { variant: 'light', color: theme.primaryColor } )
 			.color,
 	},
-}))
+} ) )
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<'div'> {
 	icon: React.FC<any>
@@ -59,38 +59,40 @@ interface FeatureProps extends React.ComponentPropsWithoutRef<'div'> {
 	iconSrv: React.FC<any>[]
 }
 
-function Feature({
+function Feature( {
 	icon: Icon,
 	title,
 	description,
 	className,
 	iconSrv,
 	...others
-}: FeatureProps) {
+}: FeatureProps ) {
 	const { classes, cx } = useStyles()
+	const theme = useMantineTheme()
+
 
 	return (
 		<Paper
-			withBorder
 			radius="md"
-			className={cx(classes.feature, className)}
+			className={cx( classes.feature, className )}
 			{...others}
 		>
 			<div className={classes.overlay} />
 
 			<div className={classes.content}>
-				<Icon size={rem(38)} className={classes.icon} stroke={1.5} />
-				<Text fw={700} fz="lg" mb="xs" mt={5} className={classes.title}>
+				<Icon size={rem( 38 )} color={theme.white} className={classes.icon} stroke={1.5} />
+				<Text fw={700} c="white" fz="lg" mb="xs" mt={5} className={classes.title}>
 					{title}
 				</Text>
-				<Text c="dimmed" fz="sm">
+				<Text color={theme.white}
+					fz="sm">
 					{description}
 				</Text>
 			</div>
 			<SimpleGrid cols={3} spacing={2} py={20}>
-				{iconSrv.map((Icon, index) => (
-					<Icon key={index} size={rem(38)} className={classes.icon} />
-				))}
+				{iconSrv.map( ( Icon, index ) => (
+					<Icon key={index} size={rem( 38 )} className={classes.icon} color={theme.white} />
+				) )}
 			</SimpleGrid>
 		</Paper>
 	)
@@ -121,17 +123,18 @@ const mockdata: FeatureProps[] = [
 ]
 
 export function FeaturesAsymmetrical() {
-	const items = mockdata.map(item => <Feature {...item} key={item.title} />)
+	const items = mockdata.map( item => <Feature {...item} key={item.title} /> )
 	const { classes } = useStyles()
+
 	return (
-		<Container size="xl">
+		<>
 			<Group position="center">
 				<Badge variant="filled" size="lg">
 					Mobile App Maintenance
 				</Badge>
 			</Group>
 
-			<Title order={2} className={classes.title} ta="center" my="sm">
+			<Title order={2} c="white" className={classes.title} ta="center" my="sm">
 				We can offer you 360° support with
 			</Title>
 			<SimpleGrid
@@ -141,6 +144,6 @@ export function FeaturesAsymmetrical() {
 			>
 				{items}
 			</SimpleGrid>
-		</Container>
+		</>
 	)
 }

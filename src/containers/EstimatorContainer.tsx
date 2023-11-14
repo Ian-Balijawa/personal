@@ -14,10 +14,10 @@ import { SizeCard, data } from '../components/SizeCard'
 export const HourlyRate = () => {
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				01
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				What's your expected current or expected average hourly rate?
 			</Title>
 			<Flex>
@@ -70,14 +70,14 @@ export const PlatformSelection = () => {
 		},
 	]
 
-	const cards = data.map(card => <PlatformCard key={card.image} {...card} />)
+	const cards = data.map( card => <PlatformCard key={card.image} {...card} /> )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				02
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				What platform do you need?
 			</Title>
 			<SimpleGrid
@@ -93,16 +93,16 @@ export const PlatformSelection = () => {
 }
 
 export const ApplicationSize = () => {
-	const cards = Array.from({ length: 3 }).map((_, index) => (
+	const cards = Array.from( { length: 3 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				03
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				How big is your app
 			</Title>
 			<SimpleGrid
@@ -118,16 +118,16 @@ export const ApplicationSize = () => {
 }
 
 export const UIUX = () => {
-	const cards = Array.from({ length: 3 }).map((_, index) => (
+	const cards = Array.from( { length: 3 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				04
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				What level of UI/UX would you need?
 			</Title>
 			<SimpleGrid
@@ -143,16 +143,16 @@ export const UIUX = () => {
 }
 
 export const UsersAndAccounts = () => {
-	const cards = Array.from({ length: 10 }).map((_, index) => (
+	const cards = Array.from( { length: 10 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				05
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				Users, accounts & security
 			</Title>
 
@@ -164,16 +164,16 @@ export const UsersAndAccounts = () => {
 }
 
 export const UserGeneratedContent = () => {
-	const cards = Array.from({ length: 4 }).map((_, index) => (
+	const cards = Array.from( { length: 4 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				06
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				User generated content
 			</Title>
 
@@ -185,16 +185,16 @@ export const UserGeneratedContent = () => {
 }
 
 export const DatesAndLocations = () => {
-	const cards = Array.from({ length: 4 }).map((_, index) => (
+	const cards = Array.from( { length: 4 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				07
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				Dates and Locations
 			</Title>
 
@@ -206,16 +206,16 @@ export const DatesAndLocations = () => {
 }
 
 export const SocialAndEngament = () => {
-	const cards = Array.from({ length: 5 }).map((_, index) => (
+	const cards = Array.from( { length: 5 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				08
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				Socail and Engament
 			</Title>
 
@@ -227,16 +227,16 @@ export const SocialAndEngament = () => {
 }
 
 export const BillingAndEcommerce = () => {
-	const cards = Array.from({ length: 7 }).map((_, index) => (
+	const cards = Array.from( { length: 7 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				09
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				Billing and Ecommerce
 			</Title>
 
@@ -248,16 +248,16 @@ export const BillingAndEcommerce = () => {
 }
 
 export const AdminFeedbackAndAnalytics = () => {
-	const cards = Array.from({ length: 8 }).map((_, index) => (
+	const cards = Array.from( { length: 8 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				10
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				Admin, Feedback and Analytics
 			</Title>
 
@@ -269,16 +269,16 @@ export const AdminFeedbackAndAnalytics = () => {
 }
 
 export const ExternalAPISAndIntergrationHours = () => {
-	const cards = Array.from({ length: 4 }).map((_, index) => (
+	const cards = Array.from( { length: 4 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				11
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				Admin, Feedback and Analytics
 			</Title>
 
@@ -290,16 +290,16 @@ export const ExternalAPISAndIntergrationHours = () => {
 }
 
 export const SecurityHours = () => {
-	const cards = Array.from({ length: 3 }).map((_, index) => (
+	const cards = Array.from( { length: 3 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				12
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				Security Hours
 			</Title>
 
@@ -311,16 +311,16 @@ export const SecurityHours = () => {
 }
 
 export const AppSpecificDevelopment = () => {
-	const cards = Array.from({ length: 1 }).map((_, index) => (
+	const cards = Array.from( { length: 1 } ).map( ( _, index ) => (
 		<SizeCard key={index} {...data} />
-	))
+	) )
 
 	return (
 		<Stack spacing={0} mb="lg" mt={0}>
-			<Title fw="lighter" fz={{ lg: 100, md: 70 }} c="dimmed">
+			<Title fw="lighter" fz={{ lg: 100, md: 70 }} >
 				13
 			</Title>
-			<Title c="dimmed" fz={{ lg: 30, md: 10 }} tt="uppercase">
+			<Title fz={{ lg: 30, md: 10 }} tt="uppercase">
 				App Specific Development
 			</Title>
 

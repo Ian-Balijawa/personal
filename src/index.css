@@ -14,6 +14,13 @@
 
 body {
 	margin: 0;
+	background: radial-gradient(
+		circle,
+		rgba(87, 12, 86, 1) 0%,
+		rgba(87, 12, 86, 1) 17%,
+		rgba(45, 6, 45, 1) 49%,
+		rgba(0, 0, 0, 0.9528186274509804) 76%
+	);
 }
 
 .loader {

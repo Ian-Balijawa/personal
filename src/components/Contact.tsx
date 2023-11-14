@@ -18,11 +18,12 @@ const useStyles = createStyles( ( theme ) => {
     return {
         wrapper: {
             display: 'flex',
-            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
             borderRadius: theme.radius.lg,
             padding: rem( 4 ),
             border: `${rem( 1 )} solid ${theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2]
                 }`,
+            background: "transparent",
+
 
             [BREAKPOINT]: {
                 flexDirection: 'column',
@@ -97,6 +98,10 @@ const useStyles = createStyles( ( theme ) => {
             [BREAKPOINT]: {
                 flex: 1,
             },
+            background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+            '&:hover': {
+                boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
+            }
         },
     };
 } );
@@ -105,7 +110,7 @@ export function GetInTouch() {
     const { classes } = useStyles();
 
     return (
-        <Paper shadow="md" radius="lg">
+        <Paper shadow="md" bg="transparent" radius="lg">
             <div className={classes.wrapper}>
                 <div className={classes.contacts}>
                     <Text fz="lg" fw={700} className={classes.title} c="#fff">
@@ -136,7 +141,7 @@ export function GetInTouch() {
                         />
 
                         <Group position="right" mt="md">
-                            <Button type="submit" className={classes.control}>
+                            <Button radius="xl" type="submit" className={classes.control}>
                                 Send message
                             </Button>
                         </Group>

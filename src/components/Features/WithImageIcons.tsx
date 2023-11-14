@@ -84,7 +84,7 @@ export function FeaturesImages( { supTitle, description, data }: FeaturesImagesP
                 <Text fw={700} fz="lg" className={classes.itemTitle}>
                     {item.title}
                 </Text>
-                <Text c="dimmed">{item.description}</Text>
+                <Text >{item.description}</Text>
             </div>
         </div>
     ) );

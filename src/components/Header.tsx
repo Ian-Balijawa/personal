@@ -16,6 +16,7 @@ const useStyles = createStyles( theme => ( {
 	wrapper: {
 		borderBottom: 'none',
 		position: 'fixed',
+		background: "transparent"
 	},
 
 	link: {
@@ -25,7 +26,7 @@ const useStyles = createStyles( theme => ( {
 		paddingLeft: theme.spacing.md,
 		paddingRight: theme.spacing.md,
 		textDecoration: 'none',
-		color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+		color: theme.white,
 		fontWeight: 500,
 		fontSize: theme.fontSizes.sm,
 

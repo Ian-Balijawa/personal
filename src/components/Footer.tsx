@@ -6,7 +6,6 @@ const useStyles = createStyles( ( theme ) => ( {
         marginTop: rem( 120 ),
         paddingTop: `calc(${theme.spacing.xl} * 2)`,
         paddingBottom: `calc(${theme.spacing.xl} * 2)`,
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     },
 
     logo: {
@@ -68,7 +67,7 @@ const useStyles = createStyles( ( theme ) => ( {
         fontWeight: 700,
         fontFamily: `Greycliff CF, ${theme.fontFamily}`,
         marginBottom: `calc(${theme.spacing.xs} / 2)`,
-        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        color: theme.white,
     },
 
     afterFooter: {

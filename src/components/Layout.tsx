@@ -1,36 +1,29 @@
-import { Container, Flex, ScrollArea } from "@mantine/core"
+import { Container, Flex, ScrollArea, createStyles } from "@mantine/core"
 
 import { Header } from "./Header"
 import { GetInTouch } from './Contact'
 import { Footer, data } from './Footer'
-import { useLocation } from 'react-router-dom'
-import { ROUTES } from '../constants/routes'
-import { HeroBlog } from './HeroBlog'
 
 type PageProps = {
 	children: React.ReactNode
 }
 
+const useStyles = createStyles( () => ( {
+	root: {}
+} ) )
+
 export default function Layout( { children }: PageProps ) {
-
-	const location = useLocation()
-
+	const { classes } = useStyles()
 	return (
-		<>
+		<div
+			className={classes.root}
+		>
 			<Flex>
 				<ScrollArea
 					type="never"
 					h="100vh"
 					w="100vw"
 				>
-					{
-						location.pathname === ROUTES.BLOG
-							?
-							<Container size={1700}>
-								<HeroBlog />
-							</Container> : null
-					}
-
 					<Container size={1700}>
 						<Header />
 					</Container>
@@ -42,7 +35,7 @@ export default function Layout( { children }: PageProps ) {
 					</Container>
 				</ScrollArea>
 			</Flex>
-		</>
+		</div>
 	)
 
 }

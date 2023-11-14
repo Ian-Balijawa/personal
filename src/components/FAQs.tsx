@@ -6,7 +6,7 @@ const useStyles = createStyles( ( theme ) => ( {
     title: {
         marginBottom: theme.spacing.md,
         paddingLeft: theme.spacing.md,
-        color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        color: theme.white,
         fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     },
 

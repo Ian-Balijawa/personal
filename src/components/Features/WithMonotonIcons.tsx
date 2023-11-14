@@ -35,6 +35,7 @@ export const MOCKDATA = [
 ];
 
 interface FeatureProps {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     icon: React.FC<any>;
     title: React.ReactNode;
     description: React.ReactNode;
@@ -42,7 +43,7 @@ interface FeatureProps {
 
 export function Feature( { icon: Icon, title, description }: FeatureProps ) {
     return (
-        <Paper withBorder p="md" radius={"lg"}>
+        <Paper bg={"transparent"} shadow='xl' p="md" radius={"lg"}>
             <ThemeIcon variant="light" size={40} radius={40}>
                 <Icon size="1.1rem" stroke={1.5} />
             </ThemeIcon>
@@ -95,7 +96,7 @@ export function FeaturesGrid( { title, description, data = MOCKDATA }: FeaturesG
 
     return (
         <Container size='xl' className={classes.wrapper}>
-            <Title className={classes.title}>{title}</Title>
+            <Title c="white" className={classes.title}>{title}</Title>
 
             <Container size={560} p={0}>
                 <Text size="sm" className={classes.description}>

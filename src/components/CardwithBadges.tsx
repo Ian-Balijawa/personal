@@ -26,7 +26,7 @@ const useStyles = createStyles( theme => ( {
 		backgroundColor:
 			theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
 		transition: 'transform 150ms ease, box-shadow 150ms ease',
-
+		background: "transparent",
 		'&:hover': {
 			transform: 'scale(1.01)',
 			zIndex: 1,
@@ -34,16 +34,23 @@ const useStyles = createStyles( theme => ( {
 		},
 	},
 
+	btn: {
+		background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+		filter: 'progid: DXImageTransform.Microsoft.gradient( startColorstr = "#833ab4", endColorstr = "#fcb045", GradientType = 1 )',
+		'&:hover': {
+			boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
+		}
+	},
 	title: {
 		fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 		fontWeight: 600,
 	},
 
 	section: {
-		borderBottom: `${rem( 1 )} solid ${theme.colorScheme === 'dark'
-				? theme.colors.dark[4]
-				: theme.colors.gray[3]
-			}`,
+		// borderBottom: `${rem( 1 )} solid ${theme.colorScheme === 'dark'
+		// 	? theme.colors.dark[4]
+		// 	: theme.colors.gray[3]
+		// 	}`,
 		paddingLeft: theme.spacing.md,
 		paddingRight: theme.spacing.md,
 		paddingBottom: theme.spacing.md,
@@ -123,7 +130,7 @@ export function BadgeCard( {
 	) )
 
 	return (
-		<Card withBorder radius="md" p="md" className={classes.card}>
+		<Card shadow='xl' radius="md" p="md" className={classes.card}>
 			<Card.Section>
 				<Carousel
 					withIndicators
@@ -140,18 +147,18 @@ export function BadgeCard( {
 
 			<Card.Section className={classes.section} mt="md">
 				<Group position="apart">
-					<Text fz="lg" fw={500}>
+					<Text c="white" fz="lg" fw={500}>
 						{title}
 					</Text>
 					<Badge size="sm">{type}</Badge>
 				</Group>
-				<Text fz="sm" mt="xs">
+				<Text c="white" fz="sm" mt="xs">
 					{getFirstMinimalDescription( description )}
 				</Text>
 			</Card.Section>
 
 			<Card.Section className={classes.section}>
-				<Text mt="md" className={classes.label} c="dimmed">
+				<Text c="white" mt="md" className={classes.label} >
 					Technology stack used
 				</Text>
 				<Group spacing={7} mt={5}>
@@ -161,6 +168,7 @@ export function BadgeCard( {
 
 			<Group mt="xs">
 				<Button
+					className={classes.btn}
 					rightIcon={<IconListDetails />}
 					radius="md"
 					style={{ flex: 1 }}
