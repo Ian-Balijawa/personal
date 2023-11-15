@@ -13,6 +13,7 @@ import {
 import { IconReceiptOff, IconFlame, IconCircleDotted, IconFileCode } from '@tabler/icons-react'
 import { useInView, useAnimation, motion } from 'framer-motion'
 import { useRef, useEffect } from 'react'
+import Motion from '../MotionDiv'
 
 const useStyles = createStyles( theme => ( {
 	wrapper: {
@@ -23,8 +24,8 @@ const useStyles = createStyles( theme => ( {
 		background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
 		filter: 'progid: DXImageTransform.Microsoft.gradient( startColorstr = "#833ab4", endColorstr = "#fcb045", GradientType = 1 )',
 		'&:hover': {
-			boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
-		}
+			boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px',
+		},
 	},
 
 	title: {
@@ -73,18 +74,11 @@ export function WithTitle() {
 		}
 	}, [isInView, controls] )
 
-	const items = features.map( feature => (
-		<motion.div
-			ref={ref}
-			variants={{
-				hidden: { opacity: 0, y: 75 },
-				visible: { opacity: 1, y: 0 },
-			}}
-			initial={"hidden"}
-			animate={controls}
-			transition={{ duration: 1.5, delay: 0.10 }}
-			key={feature.title}
-		>
+	const items = features.map( ( feature, index ) => (
+		<motion.div whileHover={{ scale: 1.1, zIndex: 999 }}
+			transition={{ duration: 1 + ++index / 2, delay: 1 + ++index / 2 }}
+
+			key={feature.title}>
 			<ThemeIcon
 				size={44}
 				radius="md"
@@ -93,53 +87,44 @@ export function WithTitle() {
 			>
 				<feature.icon size={rem( 26 )} stroke={1.5} />
 			</ThemeIcon>
-			<Text fz="lg" mt="sm" fw={500}>
+			<Text fz="lg" c="white" tt="uppercase" mt="sm" fw={900}>
 				{feature.title}
 			</Text>
-			<Text fz="sm">
-				{feature.description}
-			</Text>
+			<Text fz="sm" c="white" >{feature.description}</Text>
 		</motion.div>
 	) )
 
 	return (
-		<motion.div
-			ref={ref}
-			variants={{
-				hidden: { opacity: 0, y: 75 },
-				visible: { opacity: 1, y: 0 },
-			}}
-			initial={"hidden"}
-			animate={controls}
-			transition={{ duration: 1.5, delay: 0.25 }}
-			className={classes.wrapper}>
-			<Grid gutter={80}>
-				<Col span={12} md={5}>
-					<Title className={classes.title} order={2}>
-						Accelerating your results with our comprehensive solutions
-					</Title>
-					<Text >
-						Designing innovative products that exceed your expectations, focused on quality, user experience
-						and customer satisfaction. And therefore speeding up your growth.
-					</Text>
+		<Motion duration={2.5}>
+			<div className={classes.wrapper}>
+				<Grid gutter={80}>
+					<Col span={12} md={5}>
+						<Title className={classes.title} order={2}>
+							Accelerating your results with our comprehensive solutions
+						</Title>
+						<Text>
+							Designing innovative products that exceed your expectations, focused on quality, user
+							experience and customer satisfaction. And therefore speeding up your growth.
+						</Text>
 
-					<Button
-						variant="gradient"
-						className={classes.btn}
-						gradient={{ deg: 133, from: theme.primaryColor, to: theme.colors.yellow[9] }}
-						size="lg"
-						radius="md"
-						mt="xl"
-					>
-						View portfolio
-					</Button>
-				</Col>
-				<Col span={12} md={7}>
-					<SimpleGrid cols={2} spacing={30} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
-						{items}
-					</SimpleGrid>
-				</Col>
-			</Grid>
-		</motion.div>
+						<Button
+							variant="gradient"
+							className={classes.btn}
+							gradient={{ deg: 133, from: theme.primaryColor, to: theme.colors.yellow[9] }}
+							size="lg"
+							radius="md"
+							mt="xl"
+						>
+							View portfolio
+						</Button>
+					</Col>
+					<Col span={12} md={7}>
+						<SimpleGrid cols={2} spacing={30} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+							{items}
+						</SimpleGrid>
+					</Col>
+				</Grid>
+			</div>
+		</Motion>
 	)
 }

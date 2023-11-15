@@ -14,6 +14,7 @@ import { IconCheck, IconExternalLink } from '@tabler/icons-react'
 import { ROUTES } from '../constants/routes'
 import { Link } from 'react-router-dom'
 import { IconBrandGithub } from '@tabler/icons-react'
+import { motion } from 'framer-motion'
 
 const useStyles = createStyles( theme => ( {
 	wrapper: {
@@ -73,7 +74,7 @@ const useStyles = createStyles( theme => ( {
 	},
 
 	title: {
-		color: theme.white,
+		color: theme.primaryColor,
 		fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 		fontSize: rem( 44 ),
 		lineHeight: 1.2,
@@ -190,14 +191,18 @@ export function FeatureProject( {
 						</Link>
 					</Group>
 				</div>
-				<Image
-					withPlaceholder
-					placeholder=""
-					src={
-						image || 'https://iyn.vercel.app/images/silverlight.png'
-					}
-					className={classes.image}
-				/>
+				<motion.div
+					whileHover={{ scale: 1.3 }}
+				>
+					<Image
+						withPlaceholder
+						placeholder=""
+						src={
+							image || 'https://iyn.vercel.app/images/silverlight.png'
+						}
+						className={classes.image}
+					/>
+				</motion.div>
 			</div>
 		</Paper>
 	)

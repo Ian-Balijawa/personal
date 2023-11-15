@@ -15,6 +15,8 @@ import UserInfoAction from "../components/UserInfoAction"
 import { PortfolioHero } from '../components/PortfolioHero'
 import { DevelopmentApproach } from '../components/Approach'
 import { Hero } from '../components/Hero'
+import Motion from '../components/MotionDiv'
+import { motion } from 'framer-motion'
 
 const meta = (
 	<Helmet>
@@ -69,13 +71,21 @@ export default function Home() {
 					<Hero />
 					<WithTitle />
 					<WithCards />
-					<FeaturesAsymmetrical />
-					<DevelopmentApproach />
+					<Motion>
+						<FeaturesAsymmetrical />
+					</Motion>
+					<Motion>
+						<DevelopmentApproach />
+					</Motion>
 					<FeaturesGrid {...featuresGridData} />
-					<PortfolioHero />
+					<Motion>
+						<PortfolioHero />
+					</Motion>
 					{caseStudies}
 					<ProjectCardGrid />
-					<FAQs />
+					<Motion>
+						<FAQs />
+					</Motion>
 					<Team />
 				</Stack>
 			</Layout>
@@ -162,7 +172,11 @@ const Team = () => {
 	const { classes } = useStyles()
 
 	const cards = team.map( ( member, index ) => (
-		<UserInfoAction {...member} key={index.toString()} />
+		<motion.div whileHover={{ scale: 1.1 }}>
+			<Motion duration={1.3} delay={.4}>
+				<UserInfoAction {...member} key={index.toString()} />
+			</Motion>
+		</motion.div>
 	) )
 
 	return (

@@ -32,13 +32,13 @@ const useStyles = createStyles( ( theme ) => ( {
         fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 
         [theme.fn.smallerThan( 'xs' )]: {
-            fontSize: rem( 28 ),
-            textAlign: 'left',
+            fontSize: rem( 48 ),
+            textAlign: 'center',
         },
     },
 
     highlight: {
-        color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6],
+        color: theme.primaryColor,
     },
 
     description: {

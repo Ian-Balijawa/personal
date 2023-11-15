@@ -12,6 +12,7 @@ import {
 } from '@mantine/core'
 import { IconHexagonNumber3 } from '@tabler/icons-react'
 import { IconHexagonNumber1, IconHexagonNumber2 } from '@tabler/icons-react'
+import { motion } from 'framer-motion'
 import React from 'react'
 
 const useStyles = createStyles( theme => ( {
@@ -74,29 +75,32 @@ function Feature( {
 
 
 	return (
-		<Paper
-			radius="md"
-			className={cx( classes.feature, className )}
-			{...others}
-		>
-			<div className={classes.overlay} />
+		<motion.div whileHover={{ scale: 1.1, zIndex: 999 }} >
 
-			<div className={classes.content}>
-				<Icon size={rem( 38 )} color={theme.white} className={classes.icon} stroke={1.5} />
-				<Text fw={700} c="white" fz="lg" mb="xs" mt={5} className={classes.title}>
-					{title}
-				</Text>
-				<Text color={theme.white}
-					fz="sm">
-					{description}
-				</Text>
-			</div>
-			<SimpleGrid cols={3} spacing={2} py={20}>
-				{iconSrv.map( ( Icon, index ) => (
-					<Icon key={index} size={rem( 38 )} className={classes.icon} color={theme.white} />
-				) )}
-			</SimpleGrid>
-		</Paper>
+			<Paper
+				radius="md"
+				className={cx( classes.feature, className )}
+				{...others}
+			>
+				<div className={classes.overlay} />
+
+				<div className={classes.content}>
+					<Icon size={rem( 38 )} color={theme.white} className={classes.icon} stroke={1.5} />
+					<Text fw={700} c="white" fz="lg" mb="xs" mt={5} className={classes.title}>
+						{title}
+					</Text>
+					<Text color={theme.white}
+						fz="sm">
+						{description}
+					</Text>
+				</div>
+				<SimpleGrid cols={3} spacing={2} py={20}>
+					{iconSrv.map( ( Icon, index ) => (
+						<Icon key={index} size={rem( 38 )} className={classes.icon} color={theme.white} />
+					) )}
+				</SimpleGrid>
+			</Paper>
+		</motion.div>
 	)
 }
 

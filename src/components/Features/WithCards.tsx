@@ -11,6 +11,8 @@ import {
 } from '@mantine/core'
 import { IconBrandReactNative } from '@tabler/icons-react'
 import { IconBrandApple, IconBrandAndroid } from '@tabler/icons-react'
+import Motion from '../MotionDiv'
+import { motion } from 'framer-motion'
 
 const mockdata = [
 	{
@@ -82,64 +84,69 @@ const useStyles = createStyles( theme => ( {
 export function WithCards() {
 	const { classes, theme } = useStyles()
 	const features = mockdata.map( feature => (
-		<Card
-			key={feature.title}
-			shadow="md"
-			radius="md"
-			className={classes.card}
-			padding="xl"
-		>
-			<feature.icon
-				size={rem( 50 )}
-				stroke={2}
-				color={theme.white}
-			/>
-			<Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
-				{feature.title}
-			</Text>
-			<Text fz="sm" mt="sm">
-				{feature.description}
-			</Text>
-		</Card>
+		<motion.div whileHover={{ scale: 1.1, zIndex: 999 }} >
+			<Card
+				key={feature.title}
+				shadow="md"
+				radius="md"
+				className={classes.card}
+				padding="xl"
+			>
+				<feature.icon
+					size={rem( 50 )}
+					stroke={2}
+					color={theme.white}
+				/>
+				<Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
+					{feature.title}
+				</Text>
+				<Text fz="sm" mt="sm">
+					{feature.description}
+				</Text>
+			</Card>
+		</motion.div>
 	) )
 
 	return (
-		<Container
-			sx={( theme ) => ( {
-				padding: `calc(${theme.spacing.xl} * 2) 0px}`,
-			} )}
-			size="xl" py="xl">
-			<Group position="center">
-				<Badge variant="filled" size="lg">
-					Mobile App Development
-				</Badge>
-			</Group>
+		<Motion>
+			<Container
+				sx={( theme ) => ( {
+					padding: `calc(${theme.spacing.xl} * 2) 0px}`,
+				} )}
+				size="xl" py="xl">
+				<Group position="center">
+					<Badge variant="filled" size="lg">
+						Mobile App Development
+					</Badge>
+				</Group>
 
-			<Title order={2} c="white" className={classes.title} ta="center" mt="sm">
-				Custom Mobile Application Development Services We Provide
-			</Title>
+				<Title order={2} c="white" className={classes.title} ta="center" mt="sm">
+					Custom Mobile Application Development Services We Provide
+				</Title>
 
-			<Text
-				className={classes.description}
-				ta="center"
-				mt="md"
-				c="white"
-			>
-				Appearance and functionality — it’s a short list of demands for
-				a good mobile application. No worries I’m a mobile app developer
-				with 5+ years of experience in the field. I’ve worked with a
-				variety of technologies and frameworks, and I’m ready to help
-				you with your project.
-			</Text>
+				<Text
+					className={classes.description}
+					ta="center"
+					mt="md"
+					c="white"
+				>
+					Appearance and functionality — it’s a short list of demands for
+					a good mobile application. No worries I’m a mobile app developer
+					with 5+ years of experience in the field. I’ve worked with a
+					variety of technologies and frameworks, and I’m ready to help
+					you with your project.
+				</Text>
 
-			<SimpleGrid
-				cols={3}
-				spacing="xl"
-				mt={50}
-				breakpoints={[{ maxWidth: 'md', cols: 1 }]}
-			>
-				{features}
-			</SimpleGrid>
-		</Container>
+				<SimpleGrid
+					cols={3}
+					spacing="xl"
+					mt={50}
+					breakpoints={[{ maxWidth: 'md', cols: 1 }]}
+				>
+					{features}
+				</SimpleGrid>
+			</Container>
+		</Motion>
+
 	)
 }

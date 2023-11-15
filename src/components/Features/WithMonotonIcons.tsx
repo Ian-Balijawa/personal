@@ -1,5 +1,6 @@
 import { ThemeIcon, Text, Title, Container, SimpleGrid, createStyles, rem, Paper } from '@mantine/core';
 import { IconGauge, IconCookie, IconUser, IconMessage2, IconLock } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 export const MOCKDATA = [
     {
@@ -97,7 +98,13 @@ interface FeaturesGridProps {
 
 export function FeaturesGrid( { title, description, data = MOCKDATA }: FeaturesGridProps ) {
     const { classes } = useStyles();
-    const features = data.slice( 0, ).map( ( feature, index ) => <Feature {...feature} key={index} /> );
+    const features = data.slice( 0, ).map( ( feature, index ) =>
+        <motion.div
+            whileHover={{ scale: 1.1 }}
+        >
+            <Feature {...feature} key={index} />
+        </motion.div>
+    )
 
     return (
         <Container size='xl' className={classes.wrapper}>

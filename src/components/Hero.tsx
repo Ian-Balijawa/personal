@@ -1,8 +1,7 @@
 import { createStyles, Image, Title, Button, Group, Text, List, ThemeIcon, rem } from '@mantine/core'
 import { IconCheck, IconEye } from '@tabler/icons-react'
 import { Dots } from './Dots'
-import { motion, useAnimation, useInView } from 'framer-motion'
-import { useRef, useEffect } from 'react'
+import Motion from './MotionDiv'
 
 const useStyles = createStyles( theme => ( {
 	wrapper: {
@@ -10,7 +9,7 @@ const useStyles = createStyles( theme => ( {
 	},
 	dots: {
 		position: 'absolute',
-		color: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
+		color: theme.white,
 
 		[theme.fn.smallerThan( 'sm' )]: {
 			display: 'none',
@@ -30,7 +29,7 @@ const useStyles = createStyles( theme => ( {
 	},
 
 	content: {
-		maxWidth: rem( 580 ),
+		maxWidth: rem( 540 ),
 		marginRight: `calc(${theme.spacing.xl} * 3)`,
 
 		[theme.fn.smallerThan( 'md' )]: {
@@ -45,6 +44,8 @@ const useStyles = createStyles( theme => ( {
 		fontSize: rem( 60 ),
 		lineHeight: 1.2,
 		fontWeight: 900,
+		paddingTop: theme.spacing.xl,
+		marginTop: theme.spacing.xl,
 
 		[theme.fn.smallerThan( 'xs' )]: {
 			fontSize: rem( 28 ),
@@ -99,15 +100,6 @@ const useStyles = createStyles( theme => ( {
 
 export function Hero() {
 	const { classes } = useStyles()
-	const ref = useRef( null )
-	const isInView = useInView( ref, { once: true } )
-	const controls = useAnimation()
-
-	useEffect( () => {
-		if ( isInView ) {
-			controls.start( 'visible' )
-		}
-	}, [isInView, controls] )
 
 	return (
 		<div
@@ -116,57 +108,50 @@ export function Hero() {
 			<Dots className={classes.dots} style={{ right: 0, top: 0 }} />
 
 			<div className={classes.inner}>
-				<motion.div
-					ref={ref}
-					variants={{
-						hidden: { opacity: 0, y: 75 },
-						visible: { opacity: 1, y: 0 },
-					}}
-					initial={"hidden"}
-					animate={controls}
-					transition={{ duration: 1.5, delay: 0.10 }}
-					className={classes.content}>
-					<Title className={classes.title}>
-						Build <span className={classes.highlight}>and scale</span> <br />
-						with us in your domain
-					</Title>
-					<Text fz="xl" className={classes.highlightInner} mt="md">
-						Great software is built by great teams
-					</Text>
-					<Text c="white" fw={700} mt="md">
-						We help build and manage a team of world-class developers to bring your vision to life.
-					</Text>
+				<Motion duration={0.5}>
+					<div className={classes.content}>
+						<Title className={classes.title}>
+							Build <span className={classes.highlight}>and scale</span> <br />
+							with us in your domain
+						</Title>
+						<Text fz="xl" className={classes.highlightInner} mt="md">
+							Great software is built by great teams
+						</Text>
+						<Text c="white" fw={700} mt="md">
+							We help build and manage a team of world-class developers to bring your vision to life.
+						</Text>
 
-					<List
-						mt={30}
-						spacing="sm"
-						size="sm"
-						icon={
-							<ThemeIcon size={20} radius="xl">
-								<IconCheck size={rem( 12 )} stroke={1.5} />
-							</ThemeIcon>
-						}
-					>
-						<List.Item>
-							<b>Web Apps</b> – We prototype, build, deliver, and support all web solutions from single
-							POC and MVP to enterprise.
-						</List.Item>
-						<List.Item>
-							<b>Mobile Applications</b> – all packages have MIT license, you can use Mantine in any
-							project
-						</List.Item>
-						<List.Item>
-							<b>Machine Learning and AI</b> – focus ring will appear only when user navigates with
-							keyboard
-						</List.Item>
-					</List>
+						<List
+							mt={30}
+							spacing="sm"
+							size="sm"
+							icon={
+								<ThemeIcon size={20} radius="xl">
+									<IconCheck size={rem( 12 )} stroke={1.5} />
+								</ThemeIcon>
+							}
+						>
+							<List.Item>
+								<b>Web Apps</b> – We prototype, build, deliver, and support all web solutions from single
+								POC and MVP to enterprise.
+							</List.Item>
+							<List.Item>
+								<b>Mobile Applications</b> – all packages have MIT license, you can use Mantine in any
+								project
+							</List.Item>
+							<List.Item>
+								<b>Machine Learning and AI</b> – focus ring will appear only when user navigates with
+								keyboard
+							</List.Item>
+						</List>
 
-					<Group mt={30}>
-						<Button radius="md" fullWidth size="md" leftIcon={<IconEye />} className={classes.btn}>
-							View portfolio
-						</Button>
-					</Group>
-				</motion.div>
+						<Group mt={30}>
+							<Button radius="md" fullWidth size="md" leftIcon={<IconEye />} className={classes.btn}>
+								View portfolio
+							</Button>
+						</Group>
+					</div>
+				</Motion>
 				<Image withPlaceholder placeholder="" src={'/images/image.svg'} className={classes.image} />
 			</div>
 		</div>

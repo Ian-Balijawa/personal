@@ -1,5 +1,6 @@
 import { Text, SimpleGrid, Paper, Flex, ThemeIcon, Badge, Group, Title, createStyles, rem, useMantineTheme } from '@mantine/core';
 import { IconChairDirector } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 
 const data = [
@@ -21,7 +22,8 @@ const useStyles = createStyles( theme => ( {
     wrapper: {
         cursor: "pointer",
         color: "white",
-        background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+        // background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
+        background: 'linear-gradient(135deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%)',
         filter: 'progid: DXImageTransform.Microsoft.gradient( startColorstr = "#833ab4", endColorstr = "#fcb045", GradientType = 1 )',
         '&:hover': {
             boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
@@ -44,27 +46,29 @@ export function DevelopmentApproach() {
 
     const approach = data.map( ( stat ) => {
         return (
-            <Paper className={classes.wrapper} radius="md" p="md" key={stat.label}>
-                <Flex justify={"space-between"} align={"flex-start"} gap={"lg"}>
-                    <ThemeIcon
-                        size={44}
-                        radius="md"
-                        variant="gradient"
-                        gradient={{ deg: 133, from: theme.primaryColor, to: theme.colors.yellow[9] }}
-                    >
-                        <IconChairDirector />
-                    </ThemeIcon>
+            <motion.div whileHover={{ scale: 1.1, zIndex: 999 }} >
+                <Paper className={classes.wrapper} radius="md" p="md" key={stat.label}>
+                    <Flex justify={"space-between"} align={"flex-start"} gap={"lg"}>
+                        <ThemeIcon
+                            size={44}
+                            radius="md"
+                            variant="gradient"
+                            gradient={{ deg: 133, from: theme.primaryColor, to: theme.colors.yellow[9] }}
+                        >
+                            <IconChairDirector />
+                        </ThemeIcon>
 
-                    <div>
-                        <Text size="lg" fw="bold" mb="xs" tt="uppercase">
-                            {stat.label}
-                        </Text>
-                        <Text>
-                            {stat.description}
-                        </Text>
-                    </div>
-                </Flex>
-            </Paper>
+                        <div>
+                            <Text size="lg" fw="bold" mb="xs" tt="uppercase">
+                                {stat.label}
+                            </Text>
+                            <Text>
+                                {stat.description}
+                            </Text>
+                        </div>
+                    </Flex>
+                </Paper>
+            </motion.div>
         );
     } );
 
