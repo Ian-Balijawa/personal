@@ -26,7 +26,6 @@ const meta = (
 	</Helmet>
 )
 
-
 const mockData: FeaturedProjectProps[] = [
 	{
 		title: 'Case Study 1',
