@@ -7,7 +7,6 @@ import {
 	FeaturesGrid,
 	featuresGridData,
 } from '../components/Features/WithMonotonIcons'
-import { FAQs } from '../components/FAQs'
 import { Helmet } from 'react-helmet'
 import { FeatureProject, FeaturedProjectProps } from '../components/FeaturedProject'
 import { ProjectCardGrid } from '../components/ArticlesCardGrid'
@@ -23,7 +22,7 @@ const meta = (
 		<meta charSet="utf-8" />
 		<title>TLABS | Homepage</title>
 		<link rel="canonical" href="https://balijawa.vercel.app" />
-		<meta name="description" content="Ian balijawa's personal website" />
+		<meta name="description" content="Ian's personal website" />
 	</Helmet>
 )
 
@@ -83,9 +82,6 @@ export default function Home() {
 					</Motion>
 					{caseStudies}
 					<ProjectCardGrid />
-					<Motion>
-						<FAQs />
-					</Motion>
 					<Team />
 				</Stack>
 			</Layout>
@@ -95,49 +91,49 @@ export default function Home() {
 
 const team = [
 	{
-		name: 'Ian Balijawa',
+		name: 'Ian',
 		email: 'ianbalijawa16@gmail.com',
 		role: "CEO",
 		image: "https://iyn.vercel.app/images/about-me.png",
 	},
 	{
-		name: 'Ian Balijawa',
+		name: 'Sharif',
 		email: 'ianbalijawa16@gmail.com',
 		role: "CEO",
 		image: "https://iyn.vercel.app/images/about-me.png",
 	},
 	{
-		name: 'Ian Balijawa',
+		name: 'Allen',
 		email: 'ianbalijawa16@gmail.com',
 		role: "CEO",
 		image: "https://iyn.vercel.app/images/about-me.png",
 	},
 	{
-		name: 'Ian Balijawa',
+		name: 'Alan',
 		email: 'ianbalijawa16@gmail.com',
 		role: "CEO",
 		image: "https://iyn.vercel.app/images/about-me.png",
 	},
 	{
-		name: 'Ian Balijawa',
+		name: 'Joan',
+		email: 'ianbalijawa16@gmail.com',
+		role: "CEO",
+		image: "/images/joan.png",
+	},
+	{
+		name: 'Christine',
 		email: 'ianbalijawa16@gmail.com',
 		role: "CEO",
 		image: "https://iyn.vercel.app/images/about-me.png",
 	},
 	{
-		name: 'Ian Balijawa',
+		name: 'Ian',
 		email: 'ianbalijawa16@gmail.com',
 		role: "CEO",
 		image: "https://iyn.vercel.app/images/about-me.png",
 	},
 	{
-		name: 'Ian Balijawa',
-		email: 'ianbalijawa16@gmail.com',
-		role: "CEO",
-		image: "https://iyn.vercel.app/images/about-me.png",
-	},
-	{
-		name: 'Ian Balijawa',
+		name: 'Ian',
 		email: 'ianbalijawa16@gmail.com',
 		role: "CEO",
 		image: "https://iyn.vercel.app/images/about-me.png",
@@ -189,6 +185,7 @@ const Team = () => {
 			<Title c="white" py={50} order={5} className={classes.title} ta="center" >
 				Meet our development team
 			</Title>
+
 
 			<SimpleGrid
 				cols={4}
