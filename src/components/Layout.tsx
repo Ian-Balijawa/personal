@@ -17,7 +17,6 @@ const useStyles = createStyles( ( theme ) => ( {
 	dots: {
 		position: 'absolute',
 		color: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
-
 		[theme.fn.smallerThan( 'sm' )]: {
 			display: 'none',
 		},
@@ -27,12 +26,10 @@ const useStyles = createStyles( ( theme ) => ( {
 export default function Layout( { children }: PageProps ) {
 	const { classes } = useStyles()
 	return (
-		<div
-			className={classes.root}
-		>
-			<Dots className={classes.dots} style={{ left: 0, top: 0 }} />
+		<div className={classes.root}>
+			<Dots className={classes.dots} style={{ left: 0, top: 100 }} />
 			<Dots className={classes.dots} style={{ right: 0, top: 0 }} />
-			<Dots className={classes.dots} style={{ left: 60, top: 0 }} />
+			<Dots className={classes.dots} style={{ left: 60, top: 100 }} />
 			<Dots className={classes.dots} style={{ right: 60, top: 0 }} />
 			<Dots className={classes.dots} style={{ right: 0, top: 60 }} />
 			<Dots className={classes.dots} style={{ left: 0, top: 140 }} />
