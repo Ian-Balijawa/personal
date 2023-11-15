@@ -48,7 +48,7 @@ export function Feature( { icon: Icon, title, description }: FeatureProps ) {
             '&:hover': {
                 boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
             }
-        }} bg={'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)'} shadow='xl' p="md" radius={"lg"}>
+        }} bg={'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)'} shadow='xl' p="md">
             <ThemeIcon variant="light" size={40} radius={40}>
                 <Icon size="1.1rem" stroke={1.5} />
             </ThemeIcon>
@@ -97,7 +97,7 @@ interface FeaturesGridProps {
 
 export function FeaturesGrid( { title, description, data = MOCKDATA }: FeaturesGridProps ) {
     const { classes } = useStyles();
-    const features = data.map( ( feature, index ) => <Feature {...feature} key={index} /> );
+    const features = data.slice( 0, ).map( ( feature, index ) => <Feature {...feature} key={index} /> );
 
     return (
         <Container size='xl' className={classes.wrapper}>
@@ -112,7 +112,6 @@ export function FeaturesGrid( { title, description, data = MOCKDATA }: FeaturesG
             <SimpleGrid
                 mt={60}
                 cols={3}
-                spacing={50}
                 breakpoints={[
                     { maxWidth: 980, cols: 2, spacing: 'xl' },
                     { maxWidth: 755, cols: 1, spacing: 'xl' },

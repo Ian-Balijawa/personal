@@ -1,7 +1,9 @@
 import { createStyles, Image, Accordion, Grid, Col, Container, Title } from '@mantine/core';
 
 const useStyles = createStyles( ( theme ) => ( {
-    wrapper: {},
+    wrapper: {
+        paddingTop: `calc(${theme.spacing.xl} * 5)`,
+    },
 
     title: {
         marginBottom: theme.spacing.md,

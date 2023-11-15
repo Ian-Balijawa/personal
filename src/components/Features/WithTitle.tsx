@@ -16,7 +16,7 @@ import { useRef, useEffect } from 'react'
 
 const useStyles = createStyles( theme => ( {
 	wrapper: {
-		padding: `calc(${theme.spacing.xl} * 2) ${theme.spacing.xl}`,
+		padding: `calc(${theme.spacing.xl} * 8) 0px}`,
 	},
 
 	btn: {
@@ -81,8 +81,8 @@ export function WithTitle() {
 				visible: { opacity: 1, y: 0 },
 			}}
 			initial={"hidden"}
-			animate="visible"
-			transition={{ duration: 1.5, delay: 0.25 }}
+			animate={controls}
+			transition={{ duration: 1.5, delay: 0.10 }}
 			key={feature.title}
 		>
 			<ThemeIcon
@@ -103,7 +103,16 @@ export function WithTitle() {
 	) )
 
 	return (
-		<div className={classes.wrapper}>
+		<motion.div
+			ref={ref}
+			variants={{
+				hidden: { opacity: 0, y: 75 },
+				visible: { opacity: 1, y: 0 },
+			}}
+			initial={"hidden"}
+			animate={controls}
+			transition={{ duration: 1.5, delay: 0.25 }}
+			className={classes.wrapper}>
 			<Grid gutter={80}>
 				<Col span={12} md={5}>
 					<Title className={classes.title} order={2}>
@@ -131,6 +140,6 @@ export function WithTitle() {
 					</SimpleGrid>
 				</Col>
 			</Grid>
-		</div>
+		</motion.div>
 	)
 }

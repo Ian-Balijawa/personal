@@ -31,12 +31,12 @@ export const mockdata: MockData[] = [
 ]
 
 export function ProjectCardGrid() {
-	const cards = data.map( ( _, index ) => (
-		<BadgeCard key={index} {...data[index]} />
+	const cards = Array.from( { length: 6 } ).map( ( _, index ) => (
+		<BadgeCard key={index} {...data[0]} />
 	) )
 
 	return (
-		<Container py={'xl'} size="xl">
+		<Container py={"xl"} my="xl" size="xl">
 			<SimpleGrid cols={3} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
 				{cards}
 			</SimpleGrid>

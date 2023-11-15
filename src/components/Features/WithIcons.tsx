@@ -7,7 +7,8 @@ import {
 	Badge,
 	Group,
 	Title,
-	useMantineTheme
+	useMantineTheme,
+	Box
 } from '@mantine/core'
 import { IconHexagonNumber3 } from '@tabler/icons-react'
 import { IconHexagonNumber1, IconHexagonNumber2 } from '@tabler/icons-react'
@@ -17,6 +18,7 @@ const useStyles = createStyles( theme => ( {
 	feature: {
 		position: 'relative',
 		paddingTop: theme.spacing.xl,
+		paddingBottom: theme.spacing.xl,
 		paddingLeft: theme.spacing.xl,
 		cursor: "pointer",
 		background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
@@ -28,7 +30,7 @@ const useStyles = createStyles( theme => ( {
 		fontWeight: 900,
 
 		[theme.fn.smallerThan( 'sm' )]: {
-			fontSize: rem( 24 ),
+			fontSize: rem( 30 ),
 		},
 	},
 
@@ -127,7 +129,11 @@ export function FeaturesAsymmetrical() {
 	const { classes } = useStyles()
 
 	return (
-		<>
+		<Box
+			sx={( theme ) => ( {
+				padding: `calc(${theme.spacing.xl} * 2) 0px}`,
+			} )}
+		>
 			<Group position="center">
 				<Badge variant="filled" size="lg">
 					Mobile App Maintenance
@@ -144,6 +150,6 @@ export function FeaturesAsymmetrical() {
 			>
 				{items}
 			</SimpleGrid>
-		</>
+		</Box>
 	)
 }

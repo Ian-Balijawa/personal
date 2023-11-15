@@ -39,7 +39,7 @@ const useStyles = createStyles( theme => ( {
 		fontWeight: 900,
 
 		[theme.fn.smallerThan( 'sm' )]: {
-			fontSize: rem( 24 ),
+			fontSize: rem( 30 ),
 		},
 	},
 
@@ -104,7 +104,11 @@ export function WithCards() {
 	) )
 
 	return (
-		<Container size="xl" py="xl">
+		<Container
+			sx={( theme ) => ( {
+				padding: `calc(${theme.spacing.xl} * 2) 0px}`,
+			} )}
+			size="xl" py="xl">
 			<Group position="center">
 				<Badge variant="filled" size="lg">
 					Mobile App Development

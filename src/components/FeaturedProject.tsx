@@ -11,7 +11,6 @@ import {
 	Paper,
 } from '@mantine/core'
 import { IconCheck, IconExternalLink } from '@tabler/icons-react'
-import { Dots } from './Dots'
 import { ROUTES } from '../constants/routes'
 import { Link } from 'react-router-dom'
 import { IconBrandGithub } from '@tabler/icons-react'
@@ -126,9 +125,6 @@ export function FeatureProject( {
 	const { classes } = useStyles()
 	return (
 		<Paper className={classes.wrapper}>
-			<Dots className={classes.dots} style={{ left: 0, top: 140 }} />
-			<Dots className={classes.dots} style={{ right: 0, top: 60 }} />
-
 			<div
 				className={
 					direction === 'left'

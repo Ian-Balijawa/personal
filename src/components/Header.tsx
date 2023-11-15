@@ -1,16 +1,11 @@
 import {
 	createStyles,
 	Header as Wrapper, Group, Box,
-	Burger,
-	Drawer, rem,
-	TextInput, Image
+	Burger, rem, Image
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { IconSearch } from '@tabler/icons-react'
-import SegmentedToggle from './ToggleColorScheme'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../constants/routes'
-import { spotlight } from '@mantine/spotlight'
 
 const useStyles = createStyles( theme => ( {
 	wrapper: {
@@ -89,7 +84,7 @@ const useStyles = createStyles( theme => ( {
 } ) )
 
 export function Header() {
-	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
+	const [drawerOpened, { toggle: toggleDrawer, }] =
 		useDisclosure( false )
 	const { classes } = useStyles()
 
@@ -100,16 +95,6 @@ export function Header() {
 					<Link to={ROUTES.HOME}>
 						<Image width={100} src={"/images/logo.png"} />
 					</Link>
-
-					<Group className={classes.hiddenMobile}>
-						<TextInput
-							placeholder="Search website"
-							onClick={() => spotlight.open()}
-							size='xs'
-							icon={<IconSearch size={rem( 15 )} />}
-						/>
-						<SegmentedToggle />
-					</Group>
 					<Burger
 						opened={drawerOpened}
 						onClick={toggleDrawer}
@@ -117,20 +102,6 @@ export function Header() {
 					/>
 				</Group>
 			</Wrapper>
-
-			<Drawer
-				opened={drawerOpened}
-				onClose={closeDrawer}
-				size="100%"
-				padding="md"
-				title="Navigation"
-				className={classes.hiddenDesktop}
-				zIndex={1000000}
-			>
-				<Group position="center" grow px="md">
-					<SegmentedToggle />
-				</Group>
-			</Drawer>
 		</Box>
 	)
 }

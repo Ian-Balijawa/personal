@@ -56,10 +56,10 @@ export function DevelopmentApproach() {
                     </ThemeIcon>
 
                     <div>
-                        <Text size="xs" fw="bold" mb="xs" tt="uppercase">
+                        <Text size="lg" fw="bold" mb="xs" tt="uppercase">
                             {stat.label}
                         </Text>
-                        <Text fw="lighter">
+                        <Text>
                             {stat.description}
                         </Text>
                     </div>

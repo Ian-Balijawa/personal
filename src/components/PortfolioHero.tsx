@@ -82,9 +82,11 @@ export function PortfolioHero() {
     return (
         <Container className={classes.wrapper} >
             <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
+            <Dots className={classes.dots} style={{ left: -100, top: 0 }} />
             <Dots className={classes.dots} style={{ left: 60, top: 0 }} />
-            <Dots className={classes.dots} style={{ left: 0, top: 140 }} />
             <Dots className={classes.dots} style={{ right: 0, top: 60 }} />
+            <Dots className={classes.dots} style={{ right: 100, top: 60 }} />
+            <Dots className={classes.dots} style={{ right: 120, top: 60 }} />
 
             <div className={classes.inner}>
                 <Title className={classes.title}>

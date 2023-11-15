@@ -1,6 +1,8 @@
 import { createStyles, Image, Title, Button, Group, Text, List, ThemeIcon, rem } from '@mantine/core'
 import { IconCheck, IconEye } from '@tabler/icons-react'
 import { Dots } from './Dots'
+import { motion, useAnimation, useInView } from 'framer-motion'
+import { useRef, useEffect } from 'react'
 
 const useStyles = createStyles( theme => ( {
 	wrapper: {
@@ -59,7 +61,7 @@ const useStyles = createStyles( theme => ( {
 	btn: {
 		background: 'radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)',
 		filter: 'progid: DXImageTransform.Microsoft.gradient( startColorstr = "#833ab4", endColorstr = "#fcb045", GradientType = 1 )',
-		'&:hover': {
+		'&:active': {
 			boxShadow: 'rgba(253,29,29, 100 ) 0px 22px 70px 4px'
 		}
 	},
@@ -97,16 +99,33 @@ const useStyles = createStyles( theme => ( {
 
 export function Hero() {
 	const { classes } = useStyles()
+	const ref = useRef( null )
+	const isInView = useInView( ref, { once: true } )
+	const controls = useAnimation()
+
+	useEffect( () => {
+		if ( isInView ) {
+			controls.start( 'visible' )
+		}
+	}, [isInView, controls] )
+
 	return (
 		<div
 			className={classes.wrapper}>
 			<Dots className={classes.dots} style={{ left: 0, top: 0 }} />
-			<Dots className={classes.dots} style={{ left: 60, top: 0 }} />
-			<Dots className={classes.dots} style={{ left: 0, top: 140 }} />
-			<Dots className={classes.dots} style={{ right: 0, top: 60 }} />
+			<Dots className={classes.dots} style={{ right: 0, top: 0 }} />
 
 			<div className={classes.inner}>
-				<div className={classes.content}>
+				<motion.div
+					ref={ref}
+					variants={{
+						hidden: { opacity: 0, y: 75 },
+						visible: { opacity: 1, y: 0 },
+					}}
+					initial={"hidden"}
+					animate={controls}
+					transition={{ duration: 1.5, delay: 0.10 }}
+					className={classes.content}>
 					<Title className={classes.title}>
 						Build <span className={classes.highlight}>and scale</span> <br />
 						with us in your domain
@@ -147,7 +166,7 @@ export function Hero() {
 							View portfolio
 						</Button>
 					</Group>
-				</div>
+				</motion.div>
 				<Image withPlaceholder placeholder="" src={'/images/image.svg'} className={classes.image} />
 			</div>
 		</div>
